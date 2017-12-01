@@ -6,7 +6,7 @@ module.exports = function(config) {
     frameworks: ["mocha", "chai", "karma-typescript"],
     singleRun: isTravis,
     files: [
-      'test/setup.ts',
+      // 'test/setup.ts',
       { pattern: "src/**/*.ts" },
       { pattern: "test/**/*.ts" },
     ],
