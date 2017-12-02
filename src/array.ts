@@ -29,7 +29,6 @@ export function deepMap(
     if (isArray(item)) {
       return deepMap(item, iteratee, [...pos, i], index)
     } else {
-
       return iteratee(item, [...pos, i], index.i++)
     }
 
@@ -37,14 +36,15 @@ export function deepMap(
 
 }
 
-export function equal(a, b) {
+export function shallowEqual(a, b) {
 
-  if (a === b) return true
+  if (a === b)                return true
   if (a == null || b == null) return false
-  if (a.length !== b.length) return false
+  if (a.length !== b.length)  return false
 
   for (let i = 0; i < a.length; ++i) {
     if (a[i] !== b[i]) return false
   }
   return true
+
 }

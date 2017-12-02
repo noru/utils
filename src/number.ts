@@ -1,5 +1,5 @@
 
-export function toPercent(num: number, digit = 0) {
+export function toPercentage(num: number, digit = 0) {
   return (num * 100).toFixed(digit) + '%'
 }
 
