@@ -9,7 +9,7 @@ commit_dist_files() {
   git checkout master
   npm run dist
   NPM_VER=$(npm version patch --no-git-tag-version)
-  git add *
+  git add -A
   git commit -m "Travis build $TRAVIS_BUILD_NUMBER: $NPM_VER [ci skip]"
 }
 
