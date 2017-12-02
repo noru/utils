@@ -1,4 +1,11 @@
 
+/**
+ * Is this an array?
+ *
+ * @export
+ * @param {*} testee
+ * @returns {boolean}
+ */
 export function isArray(testee: any): boolean {
 
   if (Array.isArray) {
@@ -9,10 +16,28 @@ export function isArray(testee: any): boolean {
 
 }
 
+/**
+ * Check if an array contains any elements.
+ * null/undefined are considered empty.
+ *
+ * @export
+ * @param {(any[] | undefined | null)} arr
+ * @returns
+ */
 export function isNullOrEmpty(arr: any[] | undefined | null) {
   return arr === null || arr === undefined || arr.length === 0
 }
 
+/**
+ * Like flatMap, this function walks through the nested(multi-demension) array.
+ * This function keep the original demesions.
+ * e.g.: deepMap([1, [2, 3]], x => x + 1) => [2, [3, 4]]
+ *
+ * @export
+ * @param {any[]} deepArray
+ * @param {(item: any, cord: number[], index: number) => any} iteratee
+ * @returns
+ */
 export function deepMap(
   deepArray: any[],
   iteratee: (item: any, cord: number[], index: number) => any,
@@ -36,7 +61,15 @@ export function deepMap(
 
 }
 
-export function shallowEqual(a, b) {
+/**
+ * Shallow compare two arrays
+ *
+ * @export
+ * @param {any[]} a
+ * @param {any[]} b
+ * @returns {boolean}
+ */
+export function shallowEqual(a: any[], b: any[]): boolean {
 
   if (a === b)                return true
   if (a == null || b == null) return false
