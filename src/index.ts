@@ -1,3 +1,5 @@
 export * from './array'
-export * from './number'
 export * from './func'
+export * from './number'
+export * from './random'
+export * from './string'
