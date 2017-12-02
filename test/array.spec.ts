@@ -1,6 +1,6 @@
 import * as ArrayUtils from '../src/array'
 
-describe('Utils', () => {
+describe('Array Utils', () => {
 
   it('array: undefined or empty', () => {
 
