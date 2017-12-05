@@ -28,5 +28,5 @@ export function deepClone(source: any) {
       }
       return target
   }
-
+    throw new Error( 'Object type is not supported. Clone failed')
 }
