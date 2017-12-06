@@ -1,14 +1,19 @@
+/**
+ * Deep clone one object to another
+ * @export
+ * @param {*} source any
+ * @returns any
+ */
 export function deepClone(source: any) {
     let target
     // Handle 3 simple types
-    if (null == source || 'object' !== typeof source) return source
+    if (null == source || 'object' !== typeof source ) return source
 
-    // Handle date
+    // Handle date ->not needed its an object
     if (source instanceof Date) {
         target = new Date()
         target.setTime(source.getTime())
         return target
-
     }
 
     // Handle array
@@ -24,9 +29,10 @@ export function deepClone(source: any) {
     if (source instanceof Object) {
       target = {}
       for (let attr in source) {
-          if ( source.hasOwnProperty(attr)) target[attr] = deepClone(source[attr])
+          if ( !source.hasOwnProperty(attr))  throw new Error( 'Object type is not supported. Clone failed')
+          target[attr] = deepClone(source[attr])
       }
       return target
   }
-    throw new Error( 'Object type is not supported. Clone failed')
+   // throw new TypeError( 'Object type is not supported. Clone failed')
 }
