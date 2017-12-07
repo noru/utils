@@ -52,18 +52,22 @@ export function deepClone(source: any) {
  */
 export function isObjectEqual(obj1: any, obj2: any) {
   if (isSimpleType(obj1)) return obj1 === obj2
+  if (obj1 instanceof Date) return obj1.getTime === obj2.getTime
+
   if (obj1 instanceof Array) {
-    if ( obj1.length === obj2.length ) return false
+    if ( obj1.length !== obj2.length ) return false
     for ( let i = 0, len = obj1.length; i < len; i++ ) {
         if (!isObjectEqual(obj1[i], obj2[i])) return false
       }
     return true
     }
+
   if (obj1 instanceof Object) {
     for ( let attr in obj1) {
-      if (obj2.hasOwnProperty(attr)) return isObjectEqual(obj1[attr], obj2[attr])
+      if (!obj2.hasOwnProperty(attr)) return false
+      if (!isObjectEqual(obj1[attr], obj2[attr])) return false
     }
-
+    return true
   }
 
 }
