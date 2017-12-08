@@ -16,16 +16,14 @@ export function isSimpleType(obj: any): boolean {
  */
 export function deepClone(source: any) {
   let target
-    // Handle simple types
   if (isSimpleType(source)) return source
 
-    // Handle date
   if (source instanceof Date) {
       target = new Date()
       target.setTime(source.getTime())
       return target
   }
-    // Handle array
+
   if (source instanceof Array) {
       target = []
       for ( let i = 0, len = source.length; i < len; i++ ) {
@@ -33,7 +31,7 @@ export function deepClone(source: any) {
         }
       return target
   }
-  // Handle object
+
   if (source instanceof Object) {
       target = {}
       for (let attr in source) {
@@ -85,7 +83,6 @@ export function mergeObject(obj1: any, obj2: any) {
     for (let attr in obj1) {
       if (!obj2.hasOwnProperty(attr)) obj2[attr] = obj1[attr]
     }
-    console.log(obj2)
     return obj2
    }
 
