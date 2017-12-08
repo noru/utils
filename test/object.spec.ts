@@ -18,6 +18,8 @@ describe.only('ObjectUtil', () => {
       expect(ObjectUtil.isObjectEqual(null, null)).to.be.true
       expect(ObjectUtil.isObjectEqual(undefined, undefined)).to.be.true
       expect(ObjectUtil.isObjectEqual([1, 2, [3, 3, 3]], [1, 2, [3, 3, 4]])).to.be.false
+      expect(ObjectUtil.isObjectEqual({}, {})).to.be.true
+      expect(ObjectUtil.isObjectEqual({a: 1, b: 2}, {b: 2, a: 1})).to.be.true
       expect(ObjectUtil.isObjectEqual(testObj, testObj)).to.be.true
       expect(ObjectUtil.isObjectEqual(testObj, testObj2)).to.be.false
       expect(ObjectUtil.isObjectEqual(testObj, testObj3)).to.be.false
@@ -25,4 +27,13 @@ describe.only('ObjectUtil', () => {
       expect(ObjectUtil.isObjectEqual(testDate, 123)).to.be.false
       expect(ObjectUtil.isObjectEqual(direction, direction)).to.be.true
  })
+
+  it('mergeObject', () => {
+   //   expect(ObjectUtil.mergeObject({a: 1, b: 2, c: 3}, {a: 1, b: 3})).to.be.eq
+   //   expect(ObjectUtil.mergeObject(testObj, testObj2) ).to.be.eq(testObj2)
+      let mergedObject = {a: 0, f: { c: 1, d: 'hello'}, e: [1, 2, [3, 3, 3]], b: { c: 1, d: 'hello'}}
+      console.log(mergedObject)
+      expect(ObjectUtil.mergeObject(testObj, testObj3) ).to.be.eq(mergedObject)
+  })
+
 }, )

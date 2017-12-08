@@ -71,3 +71,22 @@ export function isObjectEqual(obj1: any, obj2: any) {
   }
 
 }
+
+/**
+ * Merge two Objects
+ * for same properties, use the second object's value
+ * @export
+ * @param {*} obj1
+ * @param {*} obj2
+ * @returns
+ */
+export function mergeObject(obj1: any, obj2: any) {
+   if (obj1 instanceof Object && obj2 instanceof Object) {
+    for (let attr in obj1) {
+      if (!obj2.hasOwnProperty(attr)) obj2[attr] = obj1[attr]
+    }
+    console.log(obj2)
+    return obj2
+   }
+
+}
