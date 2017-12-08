@@ -32,7 +32,6 @@ describe.only('ObjectUtil', () => {
      expect(ObjectUtil.mergeObject({a: 1, b: 2, c: 3}, {a: 1, b: 3})).to.be.deep.eq({a: 1, b: 3, c: 3})
      expect(ObjectUtil.mergeObject(testObj, testObj2) ).to.be.deep.eq(testObj2)
      let mergedObject = {a: 0, f: { c: 1, d: 'hello'}, e: [1, 2, [3, 3, 3]], b: { c: 1, d: 'hello'}}
-    //  console.log(mergedObject)
      expect(ObjectUtil.mergeObject(testObj, testObj3) ).to.be.deep.eq(mergedObject)
   })
 
