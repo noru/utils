@@ -1,6 +1,6 @@
 
 /**
- * Is this an array?
+ * To test if an argument is an Array
  *
  * @export
  * @param {*} testee
