@@ -38,7 +38,6 @@ module.exports = function(config) {
       bundlerOptions: {
         validateSyntax: false,
         sourceMap: true,
-        noParse: ['mqtt/dist/mqtt.min'],
       },
       compilerOptions: {
         allowJs: true,
