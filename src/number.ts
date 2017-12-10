@@ -1,4 +1,15 @@
 /**
+ * To test if the input is a number
+ *
+ * @export
+ * @param {*} testee
+ * @returns {testee is number}
+ */
+export function isNumber(testee: any): testee is number {
+  return typeof testee === 'number'
+}
+
+/**
  * Convert a number to percentage
  * e.g.: 0.98 => 98%
  *

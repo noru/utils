@@ -83,4 +83,35 @@ describe('Array Utils', () => {
 
   })
 
+  it('swap', () => {
+    let arr: any[] = [1, 2, 3]
+    ArrayUtils.swap(arr, 0, 2)
+    expect(arr).to.be.deep.eq([3, 2, 1])
+
+    arr = [1, [2, 2], 3]
+    ArrayUtils.swap(arr, [1, 0], 2)
+    expect(arr).to.be.deep.eq([1, [3, 2], 2])
+
+    arr = [1, [2, [3, [4, 5]]]]
+    ArrayUtils.swap(arr, [1, 1, 1, 1], 0)
+    expect(arr).to.be.deep.eq([5, [2, [3, [4, 1]]]])
+
+    arr = [undefined, 2]
+    ArrayUtils.swap(arr, 0 , 1)
+    expect(arr).to.be.deep.eq([2, undefined])
+
+    expect( function() { ArrayUtils.swap([1, 2], 0, 2)}).to.throw(Error)
+    expect( function() { ArrayUtils.swap([1, 2], 2, 0)}).to.throw(Error)
+  })
+
+  it('pick', () => {
+
+    expect(ArrayUtils.pick([1, 2, 3], 0)).to.be.eq(1)
+    expect(ArrayUtils.pick([1, [2, 4, 6], 3], 1, 2)).to.be.eq(6)
+
+    let parent: any = {}
+    ArrayUtils.pick([1, [2, 4, 6], 3], 1, 2, parent)
+    expect(parent.parent).to.be.deep.eq([2, 4, 6])
+
+  })
 })

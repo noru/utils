@@ -1,38 +1,54 @@
 import * as ObjectUtil from '../src/object'
 
-describe.only('ObjectUtil', () => {
-  let testObj = {a: 0, b: { c: 1, d: 'hello'}, e: [1, 2, [3, 3, 3]]}
-  let testObj2 = {a: 0, b: { c: 1, d: 'bello'}, e: [1, 2, [3, 3, 3]]}
-  let testObj3 = {a: 0, f: { c: 1, d: 'hello'}, e: [1, 2, [3, 3, 3]]}
-  let testDate = new Date(2015, 4, 16)
-  enum direction {Up, Down, Left, Right, }
+describe('ObjectUtil', () => {
 
-  it('deepClone', () => {
-      expect(ObjectUtil.deepClone(null)).to.be.deep.eq(null)
-      expect(ObjectUtil.deepClone(testObj)).to.be.deep.eq(testObj)
-      expect(ObjectUtil.deepClone(testDate)).to.be.deep.eq(testDate)
-      expect(ObjectUtil.deepClone(direction)).to.be.deep.eq(direction)
- }, )
+  it('isPremitive', () => {
 
-  it('isObjectEqual', () => {
-      expect(ObjectUtil.isObjectEqual(null, null)).to.be.true
-      expect(ObjectUtil.isObjectEqual(undefined, undefined)).to.be.true
-      expect(ObjectUtil.isObjectEqual([1, 2, [3, 3, 3]], [1, 2, [3, 3, 4]])).to.be.false
-      expect(ObjectUtil.isObjectEqual({}, {})).to.be.true
-      expect(ObjectUtil.isObjectEqual({a: 1, b: 2}, {b: 2, a: 1})).to.be.true
-      expect(ObjectUtil.isObjectEqual(testObj, testObj)).to.be.true
-      expect(ObjectUtil.isObjectEqual(testObj, testObj2)).to.be.false
-      expect(ObjectUtil.isObjectEqual(testObj, testObj3)).to.be.false
-      expect(ObjectUtil.isObjectEqual(testDate, testDate)).to.be.true
-      expect(ObjectUtil.isObjectEqual(testDate, 123)).to.be.false
-      expect(ObjectUtil.isObjectEqual(direction, direction)).to.be.true
+    expect(ObjectUtil.isPremitive('hi')).to.be.true
+    expect(ObjectUtil.isPremitive(1)).to.be.true
+    expect(ObjectUtil.isPremitive(null)).to.be.true
+    expect(ObjectUtil.isPremitive(undefined)).to.be.true
+    expect(ObjectUtil.isPremitive(new Date())).to.be.false
+    expect(ObjectUtil.isPremitive({})).to.be.false
+
+  })
+
+  it('recursiveCopy', () => {
+      expect(ObjectUtil.recursiveCopy(null)).to.be.eq(null)
+      let testObj = {a: 0, b: { c: 1, d: 'hello'}, e: [1, 2, [3, 3, 3]]}
+      expect(ObjectUtil.recursiveCopy(testObj)).to.be.deep.eq(testObj)
+      expect(ObjectUtil.recursiveCopy(new Date(2015, 4, 16))).to.be.deep.eq(new Date(2015, 4, 16))
+  }, )
+
+  it('isEqual', () => {
+    expect(ObjectUtil.isEqual(null, null)).to.be.true
+    expect(ObjectUtil.isEqual(undefined, undefined)).to.be.true
+    expect(ObjectUtil.isEqual([1, 2, [3, 3, 3]], [1, 2, [3, 3, 4]])).to.be.false
+    expect(ObjectUtil.isEqual({}, {})).to.be.true
+    expect(ObjectUtil.isEqual({a: 1, b: 2}, {b: 2, a: 1})).to.be.true
+    let testObj = {a: 0, b: { c: 1, d: 'hello'}, e: [1, 2, [3, 3, 3]]}
+    expect(ObjectUtil.isEqual(testObj, testObj)).to.be.true
+    expect(ObjectUtil.isEqual(testObj, {a: 0, b: { c: 1, d: 3}, e: [1, 2, [3, 3, 3]]})).to.be.false
+    expect(ObjectUtil.isEqual(new Date(2015, 4, 16), new Date(2015, 4, 16))).to.be.true
+    expect(ObjectUtil.isEqual(new Date(2015, 4, 16), new Date())).to.be.false
  })
 
-  it('mergeObject', () => {
-     expect(ObjectUtil.mergeObject({a: 1, b: 2, c: 3}, {a: 1, b: 3})).to.be.deep.eq({a: 1, b: 3, c: 3})
-     expect(ObjectUtil.mergeObject(testObj, testObj2) ).to.be.deep.eq(testObj2)
-     let mergedObject = {a: 0, f: { c: 1, d: 'hello'}, e: [1, 2, [3, 3, 3]], b: { c: 1, d: 'hello'}}
-     expect(ObjectUtil.mergeObject(testObj, testObj3) ).to.be.deep.eq(mergedObject)
+  it('merge', () => {
+     let a = { a: { b: 1 }}
+     let b = { a: { c: 2 }}
+     let c = {a: {d: 3}, a2: 'Hello'}
+     let aUbUc = {a: {b: 1, c: 2, d: 3}, a2: 'Hello'}
+     expect(ObjectUtil.merge(a, b)).to.be.deep.eq({ a: { b: 1, c: 2}})
+     expect(ObjectUtil.merge({a: 1}, {a: 33})).to.be.deep.eq({a: 33})
+     expect(ObjectUtil.merge({a: 1}, 123)).to.be.eq(123)
+     expect(ObjectUtil.merge(a, undefined)).to.be.eq(a)
+     expect(ObjectUtil.merge(a, null)).to.be.eq(a)
+     expect(ObjectUtil.merge(null, undefined)).to.be.eq(undefined)
+     expect(ObjectUtil.merge(null, undefined, a, null)).to.be.deep.eq(a)
+     expect(ObjectUtil.merge(a, b, c)).to.be.deep.eq(aUbUc)
+     expect(ObjectUtil.merge(a, b, 'hello')).to.be.eq('hello')
+     expect(ObjectUtil.merge('hello', 123, a)).to.be.deep.eq(aUbUc)
+     expect(ObjectUtil.merge(aUbUc, a, b, c)).to.be.deep.eq(aUbUc)
   })
 
 }, )

@@ -1,12 +1,13 @@
+import { isNumber } from './number'
 
 /**
- * Is this an array?
+ * To test if the input is an array
  *
  * @export
  * @param {*} testee
  * @returns {boolean}
  */
-export function isArray(testee: any): boolean {
+export function isArray(testee: any): testee is any[] {
 
   if (Array.isArray) {
     return Array.isArray(testee)
@@ -80,4 +81,58 @@ export function shallowEqual(a: any[], b: any[]): boolean {
   }
   return true
 
+}
+/**
+ * Swap value of array's two postions
+ *
+ * @export
+ * @param {any[]} arr
+ * @param {*} pos1
+ * @param {*} pos2
+ * @returns arr
+ */
+export function swap(arr: any[], pos1: number | number[], pos2: number | number[]): void {
+
+  if (isNumber(pos1)) pos1 = [ pos1 ]
+  if (isNumber(pos2)) pos2 = [ pos2 ]
+
+  let parent1: any = {}
+  let parent2: any = {}
+  let val1 = pick(arr, ...pos1, parent1) // pick (arr, 1,2,3 ,parent1)
+  let val2 = pick(arr, ...pos2, parent2)
+
+  parent1.parent[pos1[pos1.length - 1]] = val2
+  parent2.parent[pos2[pos2.length - 1]] = val1
+
+}
+
+/**
+ * Pick a value from a deep array by its indices.
+ * e.g.: pick(arr, 1, 2, 3) = arr[1][2][3]
+ *
+ * @export
+ * @param {any[]} array
+ * @param {any} indices target value indices in a deep array. e.g. the indice of value `arr[i1][i2][i3]` is [i1, i2, i3]
+ * @returns {any}
+ */
+export function pick(array: any[], ...indices): any {
+
+  let last = indices.pop()
+  if (typeof last !== 'object') {
+    indices.push(last)
+    last = undefined
+  }
+
+  if (indices.length === 1) {
+    let [ i ] = indices
+    if (array !== undefined && array.length > i) {
+      last && (last.parent = array)
+      return array[i]
+    }
+    throw new Error(`Out of bound`)
+  }
+
+  let [ first, ...rest ] = indices
+  last && rest.push(last)
+  return pick(array[first], ...rest)
 }
