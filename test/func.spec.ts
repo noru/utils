@@ -7,7 +7,7 @@ describe('String Utils', () => {
     expect(FuncUtils.identity(a) === a).to.be.true
   })
 
-  it.only('apply', () => {
+  it('apply', () => {
 
     let increment = x => x + 1
     let double = x => x * 2
