@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;array&quot; | xz-utils</title>
+	<title>&quot;object&quot; | xz-utils</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_array_.html">&quot;array&quot;</a>
+					<a href="_object_.html">&quot;object&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;array&quot;</h1>
+			<h1>External module &quot;object&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -73,12 +73,11 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_array_.html#deepmap" class="tsd-kind-icon">deep<wbr>Map</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_array_.html#isarray" class="tsd-kind-icon">is<wbr>Array</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_array_.html#isnullorempty" class="tsd-kind-icon">is<wbr>Null<wbr>OrEmpty</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_array_.html#pick" class="tsd-kind-icon">pick</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_array_.html#shallowequal" class="tsd-kind-icon">shallow<wbr>Equal</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_array_.html#swap" class="tsd-kind-icon">swap</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#isequal" class="tsd-kind-icon">is<wbr>Equal</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#ispremitive" class="tsd-kind-icon">is<wbr>Premitive</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_object_.html#isundefinedornull" class="tsd-kind-icon">is<wbr>Undefined<wbr>OrNull</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#merge" class="tsd-kind-icon">merge</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#recursivecopy" class="tsd-kind-icon">recursive<wbr>Copy</a></li>
 							</ul>
 						</section>
 					</div>
@@ -87,23 +86,21 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="deepmap" class="tsd-anchor"></a>
-					<h3>deep<wbr>Map</h3>
+					<a name="isequal" class="tsd-anchor"></a>
+					<h3>is<wbr>Equal</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">deep<wbr>Map<span class="tsd-signature-symbol">(</span>deepArray<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, iteratee<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, pos<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, index<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Equal<span class="tsd-signature-symbol">(</span>obj1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, obj2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a423b86/src/array.ts#L42">array.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/a423b86/src/object.ts#L56">object.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Like flatMap, this function walks through the nested(multi-demension) array.
-										This function keep the original demesions.
-									e.g.: deepMap([1, [2, 3]], x =&gt; x + 1) =&gt; [2, [3, 4]]</p>
+									<p>Check whether A equals B</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>export</dt>
@@ -113,40 +110,110 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>deepArray: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>obj1: <span class="tsd-signature-type">any</span></h5>
 								</li>
 								<li>
-									<h5>iteratee: <span class="tsd-signature-type">function</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, cord<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>item: <span class="tsd-signature-type">any</span></h5>
-														</li>
-														<li>
-															<h5>cord: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-														</li>
-														<li>
-															<h5>index: <span class="tsd-signature-type">number</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
+									<h5>obj2: <span class="tsd-signature-type">any</span></h5>
 								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">true</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">false</span>
+							</h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="ispremitive" class="tsd-anchor"></a>
+					<h3>is<wbr>Premitive</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Premitive<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/a423b86/src/object.ts#L9">object.ts:9</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check argument is premitive or not</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>export</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> pos: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></h5>
+									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="isundefinedornull" class="tsd-anchor"></a>
+					<h3>is<wbr>Undefined<wbr>OrNull</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Undefined<wbr>OrNull<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/a423b86/src/object.ts#L114">object.ts:114</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check input param is undefined or null</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> index: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;{ i: 0 }</span></h5>
+									<h5>param: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="merge" class="tsd-anchor"></a>
+					<h3>merge</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">merge<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>argument<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/a423b86/src/object.ts#L92">object.ts:92</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Merge Objects from left to right
+										Array and plain object properties are merged recursively.
+										Other objects and value types are overridden by assignment
+									Subsequent object overwrite property assignments of previous object.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>export</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>argument: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -154,21 +221,21 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="isarray" class="tsd-anchor"></a>
-					<h3>is<wbr>Array</h3>
+					<a name="recursivecopy" class="tsd-anchor"></a>
+					<h3>recursive<wbr>Copy</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Array<span class="tsd-signature-symbol">(</span>testee<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">recursive<wbr>Copy<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a423b86/src/array.ts#L10">array.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/a423b86/src/object.ts#L19">object.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>To test if an argument is an Array</p>
+									<p>Deep clone one object</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>export</dt>
@@ -178,156 +245,14 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>testee: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="isnullorempty" class="tsd-anchor"></a>
-					<h3>is<wbr>Null<wbr>OrEmpty</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Null<wbr>OrEmpty<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a423b86/src/array.ts#L28">array.ts:28</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Check if an array contains any elements.
-									null/undefined are considered empty.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>arr: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="pick" class="tsd-anchor"></a>
-					<h3>pick</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">pick<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, <span class="tsd-signature-symbol">...</span>indices<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a423b86/src/array.ts#L118">array.ts:118</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Pick a value from a deep array by its indices.
-									e.g.: pick(arr, 1, 2, 3) = arr[1][2][3]</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>array: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>indices: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>source: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>target value indices in a deep array. e.g. the indice of value <code>arr[i1][i2][i3]</code> is [i1, i2, i3]</p>
+										<p>any</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="shallowequal" class="tsd-anchor"></a>
-					<h3>shallow<wbr>Equal</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">shallow<wbr>Equal<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a423b86/src/array.ts#L73">array.ts:73</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Shallow compare two arrays</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>a: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5>b: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="swap" class="tsd-anchor"></a>
-					<h3>swap</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">swap<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, pos1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, pos2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a423b86/src/array.ts#L94">array.ts:94</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Swap value of array&#39;s two postions</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>arr: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5>pos1: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5>pos2: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-							<p>arr</p>
+							<p>any</p>
 						</li>
 					</ul>
 				</section>
@@ -339,7 +264,7 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="_array_.html">"array"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -354,7 +279,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="_number_.html">"number"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="_object_.html">"object"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -368,22 +293,19 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_array_.html#deepmap" class="tsd-kind-icon">deep<wbr>Map</a>
+						<a href="_object_.html#isequal" class="tsd-kind-icon">is<wbr>Equal</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_array_.html#isarray" class="tsd-kind-icon">is<wbr>Array</a>
+						<a href="_object_.html#ispremitive" class="tsd-kind-icon">is<wbr>Premitive</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_object_.html#isundefinedornull" class="tsd-kind-icon">is<wbr>Undefined<wbr>OrNull</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_array_.html#isnullorempty" class="tsd-kind-icon">is<wbr>Null<wbr>OrEmpty</a>
+						<a href="_object_.html#merge" class="tsd-kind-icon">merge</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_array_.html#pick" class="tsd-kind-icon">pick</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_array_.html#shallowequal" class="tsd-kind-icon">shallow<wbr>Equal</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_array_.html#swap" class="tsd-kind-icon">swap</a>
+						<a href="_object_.html#recursivecopy" class="tsd-kind-icon">recursive<wbr>Copy</a>
 					</li>
 				</ul>
 			</nav>
