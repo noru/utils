@@ -39,6 +39,11 @@ describe('Array Utils', () => {
 
     expect(ArrayUtils.shallowEqual([1], [])).to.be.false
     expect(ArrayUtils.shallowEqual([{}], [{}])).to.be.false
+
+    expect(ArrayUtils.shallowEqual({}, {})).to.be.true
+    expect(ArrayUtils.shallowEqual({ a: 1 }, { a: 1})).to.be.true
+    expect(ArrayUtils.shallowEqual({ a: 1 }, { a: 2})).to.be.false
+    expect(ArrayUtils.shallowEqual({ a: 1, b: {} }, { a: 1, b: {}})).to.be.false
   })
 
   it('deepMap', () => {

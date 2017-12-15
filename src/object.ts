@@ -1,4 +1,6 @@
 
+export { shallowEqual } from './array'
+
 /**
  * Check argument is premitive or not
  *

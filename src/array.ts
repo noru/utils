@@ -63,20 +63,20 @@ export function deepMap(
 }
 
 /**
- * Shallow compare two arrays
+ * Shallow compare two arrays/objects
  *
  * @export
- * @param {any[]} a
- * @param {any[]} b
+ * @param {(object | any[])} a
+ * @param {(object | any[])} b
  * @returns {boolean}
  */
-export function shallowEqual(a: any[], b: any[]): boolean {
+export function shallowEqual(a: object | any[], b: object | any[]): boolean {
 
   if (a === b)                return true
   if (a == null || b == null) return false
-  if (a.length !== b.length)  return false
+  if ((a as any[]).length !== (b as any[]).length)  return false
 
-  for (let i = 0; i < a.length; ++i) {
+  for (let i in a) {
     if (a[i] !== b[i]) return false
   }
   return true
