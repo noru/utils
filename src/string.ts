@@ -22,10 +22,10 @@ export function ellipsis(str: string, limit: number): string {
  *
  * @export
  * @param {any} queryString
- * @returns {object}
+ * @returns {any}
  */
-export function parseQuery(queryString): object {
-  let query: object = {}
+export function parseQuery(queryString): any {
+  let query = {}
   let pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&')
   // tslint:disable-next-line:prefer-for-of
   for (let pair of pairs) {
