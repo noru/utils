@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;number&quot; | xz-utils</title>
+	<title>&quot;dom&quot; | xz-utils</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_number_.html">&quot;number&quot;</a>
+					<a href="_dom_.html">&quot;dom&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;number&quot;</h1>
+			<h1>External module &quot;dom&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -73,9 +73,11 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_number_.html#isbetween" class="tsd-kind-icon">is<wbr>Between</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_number_.html#isnumber" class="tsd-kind-icon">is<wbr>Number</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_number_.html#topercentage" class="tsd-kind-icon">to<wbr>Percentage</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_dom_.html#actualbgcolor" class="tsd-kind-icon">actual<wbr>BgColor</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_dom_.html#exitfullscreen" class="tsd-kind-icon">exit<wbr>Fullscreen</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_dom_.html#isfullscreen" class="tsd-kind-icon">is<wbr>Fullscreen</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_dom_.html#requestfullscreen" class="tsd-kind-icon">request<wbr>Fullscreen</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_dom_.html#togglefullscreen" class="tsd-kind-icon">toggle<wbr>Fullscreen</a></li>
 							</ul>
 						</section>
 					</div>
@@ -84,21 +86,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="isbetween" class="tsd-anchor"></a>
-					<h3>is<wbr>Between</h3>
+					<a name="actualbgcolor" class="tsd-anchor"></a>
+					<h3>actual<wbr>BgColor</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Between<span class="tsd-signature-symbol">(</span>testee<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, inclusive<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">actual<wbr>BgColor<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/8db8060/src/number.ts#L35">number.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/8db8060/src/dom.ts#L9">dom.ts:9</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Test if a number is within a range</p>
+									<p>Get the background color of an element, if the element&#39;s background color is
+									not set(transparent), try its parents recursively</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>export</dt>
@@ -108,87 +111,117 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>testee: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>min: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>max: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> inclusive: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> =&nbsp;[true, true]</span></h5>
+									<h5>element: <span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
 								</li>
 							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">null</span>
+							</h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="exitfullscreen" class="tsd-anchor"></a>
+					<h3>exit<wbr>Fullscreen</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">exit<wbr>Fullscreen<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/8db8060/src/dom.ts#L80">dom.ts:80</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Request exiting fullscreen mode</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>export</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="isfullscreen" class="tsd-anchor"></a>
+					<h3>is<wbr>Fullscreen</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Fullscreen<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/8db8060/src/dom.ts#L44">dom.ts:44</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check if the window is currently in fullscreen mode</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>export</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="isnumber" class="tsd-anchor"></a>
-					<h3>is<wbr>Number</h3>
+					<a name="requestfullscreen" class="tsd-anchor"></a>
+					<h3>request<wbr>Fullscreen</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Number<span class="tsd-signature-symbol">(</span>testee<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">request<wbr>Fullscreen<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/8db8060/src/number.ts#L8">number.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/8db8060/src/dom.ts#L54">dom.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>To test if the input is a number</p>
+									<p>Request entering fullscreen mode</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>export</dt>
 									<dd></dd>
 								</dl>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>testee: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="topercentage" class="tsd-anchor"></a>
-					<h3>to<wbr>Percentage</h3>
+					<a name="togglefullscreen" class="tsd-anchor"></a>
+					<h3>toggle<wbr>Fullscreen</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Percentage<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, digit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">toggle<wbr>Fullscreen<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/8db8060/src/number.ts#L21">number.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/8db8060/src/dom.ts#L29">dom.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Convert a number to percentage
-									e.g.: 0.98 =&gt; 98%</p>
+									<p>Toggle fullscreen mode</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>export</dt>
 									<dd></dd>
 								</dl>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>num: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> digit: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -203,7 +236,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="_array_.html">"array"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="_dom_.html">"dom"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -215,7 +248,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="_index_.html">"index"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="_number_.html">"number"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -232,13 +265,19 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_number_.html#isbetween" class="tsd-kind-icon">is<wbr>Between</a>
+						<a href="_dom_.html#actualbgcolor" class="tsd-kind-icon">actual<wbr>BgColor</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_number_.html#isnumber" class="tsd-kind-icon">is<wbr>Number</a>
+						<a href="_dom_.html#exitfullscreen" class="tsd-kind-icon">exit<wbr>Fullscreen</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_number_.html#topercentage" class="tsd-kind-icon">to<wbr>Percentage</a>
+						<a href="_dom_.html#isfullscreen" class="tsd-kind-icon">is<wbr>Fullscreen</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_dom_.html#requestfullscreen" class="tsd-kind-icon">request<wbr>Fullscreen</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_dom_.html#togglefullscreen" class="tsd-kind-icon">toggle<wbr>Fullscreen</a>
 					</li>
 				</ul>
 			</nav>
