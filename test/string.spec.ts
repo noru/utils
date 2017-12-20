@@ -10,4 +10,14 @@ describe('String Utils', () => {
     expect(() => StrUtils.ellipsis(123, 2)).throws()
   })
 
+  it('query parse', () => {
+
+    expect(StrUtils.parseQuery('')).to.be.deep.eq({})
+    expect(StrUtils.parseQuery('?')).to.be.deep.eq({})
+    expect(StrUtils.parseQuery('?a=1&b=2')).to.be.deep.eq({ a: '1', b: '2'})
+    expect(StrUtils.parseQuery('a=1&b=2')).to.be.deep.eq({ a: '1', b: '2'})
+    expect(StrUtils.parseQuery(`a=1&b=${encodeURIComponent('#$%')}`)).to.be.deep.eq({ a: '1', b: '#$%'})
+
+  })
+
 })
