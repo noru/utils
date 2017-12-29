@@ -88,6 +88,8 @@ export function exitFullscreen() {
     document.mozCancelFullScreen()
   } else if (document.webkitExitFullscreen) {
     document.webkitExitFullscreen()
+  } else if (document.webkitCancelFullscreen) {
+    document.webkitCancelFullscreen()
   }
 
 }
