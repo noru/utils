@@ -41,3 +41,19 @@ export function apply(args?: any[] | any, ...funcs: _Function[]): any {
   }, args)
 
 }
+
+/**
+ * Simple try catch wrapper that returns a default value if exception was raised
+ *
+ * @export
+ * @param {() => any} func
+ * @param {*} defaultValue
+ * @returns {*}
+ */
+export function Try(func: _Function, defaultValue: any): any {
+  try {
+    return func()
+  } catch {
+    return defaultValue
+  }
+}

@@ -74,6 +74,8 @@ export function requestFullscreen() {
 /**
  * Request exiting fullscreen mode
  *
+ * Note: may not warking on Android
+ *
  * @export
  */
 /* istanbul ignore next */
