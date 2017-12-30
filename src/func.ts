@@ -50,7 +50,7 @@ export function apply(args?: any[] | any, ...funcs: _Function[]): any {
  * @param {*} defaultValue
  * @returns {*}
  */
-export function Try(func: _Function, defaultValue: any): any {
+export function Try(func: _Function, defaultValue?: any): any {
   try {
     return func()
   } catch {

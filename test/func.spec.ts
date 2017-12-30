@@ -24,4 +24,14 @@ describe('String Utils', () => {
 
   })
 
+  it('try', () => {
+
+    expect(FuncUtils.Try(() => undefined)).to.not.throws
+    expect(FuncUtils.Try(() => { throw new Error() })).to.not.throws
+    expect(FuncUtils.Try(() => { throw new Error() })).to.be.undefined
+    expect(FuncUtils.Try(() => { throw new Error() }, 1)).to.be.eq(1)
+    expect(FuncUtils.Try(() => 2, 1)).to.be.eq(2)
+
+  })
+
 })
