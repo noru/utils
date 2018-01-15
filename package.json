@@ -1,5 +1,5 @@
 {
-  "name": "@noru/utils",
+  "name": "noru-utils",
   "version": "0.0.16",
   "description": "",
   "main": "src/index.ts",
