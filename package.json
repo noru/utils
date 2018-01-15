@@ -1,5 +1,5 @@
 {
-  "name": "xz-utils",
+  "name": "@noru/utils",
   "version": "0.0.15",
   "description": "",
   "main": "src/index.ts",

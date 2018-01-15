@@ -17,3 +17,11 @@ before_install:
 
 after_success:
   - bash travis/commit.sh
+deploy:
+  provider: npm
+  email: nooooru@gmail.com
+  api_key:
+    secure: 3yWEjkKkpj+WxQL+HH5UxU6Rwde7bFLzjeB/8UKMXAtJmbxjGP2wcdWtUK9UyZ/cafYfOWEFw4J33YXhplKuDr0Tx/s9LPJ8RTEyc9oiV1+3TydlutiybyOLC5+UJSI9nBpl8exTFGApkkFVD82MclftomRTthEeiUHY8FSTE5QJAv9a5q/mGnnAA0tZQQ6mHAS4g6ko4m3riL9/ybdFLm08WWbkuE60NUmfDcw8vuxCIeuKlpJioJAIFXct64Qy09pUEJhSQVaDIW/+mgLMx5iXvEU+dFKxjlqZDRpEIn4SiEgEDzgT+j2nouRHugTSZc6SDwEwlQ+bkZndewDgXOPqMl8fanN0iQwkgbbfwJMzOE4nuey1KUEJBoyTriZ8NZICnE4b+SUeOKVNdVwn4Nj6o3IMvV0zzcGe0a6Lfl4TQ+Pzd0X6xRGEo23liet62xoygh2pqBMgd44sMg8lpPTqF5i8el2VTJJP0gOaT1xiuex8Ip849nNmrsTqhaHwOZSUupFoUuPS2UYcW47nBWJbRZFru38NC+EhB7KfjXBnNo+C6gXhL9AAEmxBrWHokv7YMDOykLqPADmrf4tgcM2HtYUljDydwDMiqlLaHOR8xSisoTSLlUHPejHzEzOeXxS5WyH6ggOFYQqA5nGAQLbaN0Uf97NJVMLJBMMMZQc=
+  on:
+    tags: false
+    repo: noru/utils
