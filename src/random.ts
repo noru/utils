@@ -33,3 +33,14 @@ export function random(...args): number {
 export function randomInt(...args): number {
   return Math.round(random(...args))
 }
+
+/**
+ * Random boolean value
+ *
+ * @export
+ * @param {any} args
+ * @returns {boolean}
+ */
+export function randomBool(): boolean {
+  return Math.random() > .5
+}

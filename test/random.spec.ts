@@ -31,4 +31,10 @@ describe('Random Utils', () => {
 
   })
 
+  it('random bool', () => {
+
+    let result = RandUtils.randomBool()
+    expect(typeof result).to.be.eq('boolean')
+
+  })
 })

@@ -51,4 +51,16 @@ describe('ObjectUtil', () => {
      expect(ObjectUtil.merge(aUbUc, a, b, c)).to.be.deep.eq(aUbUc)
   })
 
-}, )
+  it('isEmpty', () => {
+    expect(ObjectUtil.isEmpty('')).to.be.true
+    expect(ObjectUtil.isEmpty({})).to.be.true
+    expect(ObjectUtil.isEmpty([])).to.be.true
+    expect(ObjectUtil.isEmpty(33)).to.be.false
+    expect(ObjectUtil.isEmpty('hello')).to.be.false
+    expect(ObjectUtil.isEmpty([2, 3, 4])).to.be.false
+    expect(ObjectUtil.isEmpty({ test: 1 })).to.be.false
+    expect(ObjectUtil.isEmpty({length: 0, custom_property: []})).to.be.true
+
+  })
+
+})
