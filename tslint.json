@@ -60,7 +60,8 @@
       "trailing-comma": [true, {"multiline": "always", "singleline": "ignore"}],
       "no-angle-bracket-type-assertion": false,
       "only-arrow-functions": false,
-      "curly": [true, "ignore-same-line"]
+      "curly": [true, "ignore-same-line"],
+      "new-parens": false
     },
     "rulesDirectory": []
 }

@@ -63,4 +63,39 @@ describe('ObjectUtil', () => {
 
   })
 
+  it('flattenDeepBy', () => {
+
+    expect(ObjectUtil.flattenDeepBy(undefined, 'a')).to.be.deep.eq([])
+    expect(ObjectUtil.flattenDeepBy(null, 'a')).to.be.deep.eq([])
+    expect(ObjectUtil.flattenDeepBy([], 'a')).to.be.deep.eq([])
+    expect(ObjectUtil.flattenDeepBy(123, 'a')).to.be.deep.eq([])
+    expect(ObjectUtil.flattenDeepBy('a string', 'a')).to.be.deep.eq([])
+    expect(ObjectUtil.flattenDeepBy({}, 'a')).to.be.deep.eq([])
+
+    let testee = { a: [{a: [{a: []}], b: 2}, {b: 3}], b: 1 }
+    let flattened = ObjectUtil.flattenDeepBy(testee, 'a')
+    expect(flattened).to.be.deep.eq([
+      {a: [{a: [{a: []}], b: 2}, {b: 3}], b: 1},
+      {a: [{a: []}], b: 2},
+      {a: []}, {b: 3},
+    ])
+
+    let thirdLvl = [
+      { id: '3', name: '王大锤', timestamp: new Date, content: 'Defend this one, conservatives.', subComments: [] },
+    ]
+    let secLvl = [
+      { id: '2', name: '王大锤', timestamp: new Date, content: 'Defend this one, conservatives.', subComments: thirdLvl },
+      { id: '4', name: '王小锤', timestamp: new Date, content: ' Why are you discussing tariffs at the soup store!?' },
+    ]
+
+    let topLvl = [
+      // tslint:disable-next-line:max-line-length
+      { id: '1', name: '王大山', timestamp: new Date, content: 'Y\'know, we really have the best Stupid. It\'s American, American Stupid, and it\'s so great. It\'s not like that European Stupid, I\'ve seen their stupid... y\'know, I\'ve been all over the world, I\'ve met a lot of very rich', subComments: secLvl },
+      { id: '5', name: '王小山', timestamp: new Date, content: '是评论对象的rid值,格式' },
+    ]
+    flattened = ObjectUtil.flattenDeepBy(topLvl, 'subComments')
+
+    expect(flattened.map(c => c.id)).to.be.deep.eq(['1', '2', '3', '4', '5'])
+  })
+
 })

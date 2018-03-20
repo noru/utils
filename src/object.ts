@@ -1,5 +1,5 @@
-
-export { shallowEqual } from './array'
+import { isArray } from './array'
+export { shallowEqual, isArray } from './array'
 
 /**
  * Check argument is premitive or not
@@ -147,4 +147,29 @@ export function isEmpty(obj: any): boolean {
   }
 
   return true
+}
+
+export function flattenDeepBy(obj: any, propNameOrGetter: string | _Function ) {
+
+  if (isEmpty(obj) || typeof obj === 'number' || typeof obj === 'string') {
+    return []
+  }
+
+  if (!isArray(obj)) {
+    obj = [obj]
+  }
+  if (typeof propNameOrGetter === 'string') {
+    let _propStr = propNameOrGetter
+    propNameOrGetter = o => o[_propStr]
+  }
+  let result = new Array
+  while (obj.length > 0) {
+    let head = obj.shift()
+    result.push(head)
+    let propVal = propNameOrGetter(head)
+    if (isArray(propVal)) {
+      obj = propVal.concat(obj)
+    }
+  }
+  return result
 }
