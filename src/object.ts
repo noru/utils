@@ -149,7 +149,35 @@ export function isEmpty(obj: any): boolean {
   return true
 }
 
-export function flattenDeepBy(obj: any, propNameOrGetter: string | _Function ) {
+/**
+ * Like lodash.flattenDeep, except it flattens an array property of an object. e.g.:
+ * {
+ *   id: 1,
+ *   children: [
+ *     {
+ *       id: 2,
+ *       children: [
+ *         {
+ *           id: 3
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * become:
+ * [
+ *   { id: 1, children: [...] },
+ *   { id: 2, children: [...] },
+ *   { id: 3 },
+ * ]
+ *
+ * @export
+ * @template T
+ * @param {(T | T[])} obj target to be flattened
+ * @param {(string | _Function)} propNameOrGetter name or getter of the target array
+ * @returns {T[]}
+ */
+export function flattenDeepBy<T>(obj: T | T[], propNameOrGetter: string | _Function ): T[] {
 
   if (isEmpty(obj) || typeof obj === 'number' || typeof obj === 'string') {
     return []

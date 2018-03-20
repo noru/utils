@@ -93,9 +93,9 @@ describe('ObjectUtil', () => {
       { id: '1', name: '王大山', timestamp: new Date, content: 'Y\'know, we really have the best Stupid. It\'s American, American Stupid, and it\'s so great. It\'s not like that European Stupid, I\'ve seen their stupid... y\'know, I\'ve been all over the world, I\'ve met a lot of very rich', subComments: secLvl },
       { id: '5', name: '王小山', timestamp: new Date, content: '是评论对象的rid值,格式' },
     ]
-    flattened = ObjectUtil.flattenDeepBy(topLvl, 'subComments')
+    let flattened2 = ObjectUtil.flattenDeepBy(topLvl, 'subComments')
 
-    expect(flattened.map(c => c.id)).to.be.deep.eq(['1', '2', '3', '4', '5'])
+    expect(flattened2.map(c => c.id)).to.be.deep.eq(['1', '2', '3', '4', '5'])
   })
 
 })

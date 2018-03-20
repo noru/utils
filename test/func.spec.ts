@@ -24,7 +24,7 @@ describe('String Utils', () => {
 
   })
 
-  it('try', () => {
+  it('attempt', () => {
 
     expect(FuncUtils.attempt(() => undefined)).to.not.throws
     expect(FuncUtils.attempt(() => { throw new Error() })).to.not.throws

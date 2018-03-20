@@ -114,9 +114,13 @@ describe('Array Utils', () => {
     expect(ArrayUtils.pick([1, 2, 3], 0)).to.be.eq(1)
     expect(ArrayUtils.pick([1, [2, 4, 6], 3], 1, 2)).to.be.eq(6)
 
-    let parent: any = {}
-    ArrayUtils.pick([1, [2, 4, 6], 3], 1, 2, parent)
-    expect(parent.parent).to.be.deep.eq([2, 4, 6])
+    let parents = []
+    ArrayUtils.pick([1, [2, 4, 6, [1, 2, 3]], 3], 1, 3, 0, parents)
+    expect(parents).to.be.deep.eq([[2, 4, 6, [1, 2, 3]], [1, 2, 3]])
 
+  })
+
+  it.only('unflatten', () => {
+    expect(1).to.be.eq(2)
   })
 })

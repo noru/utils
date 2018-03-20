@@ -109,30 +109,44 @@ export function swap(arr: any[], pos1: number | number[], pos2: number | number[
 /**
  * Pick a value from a deep array by its indices.
  * e.g.: pick(arr, 1, 2, 3) = arr[1][2][3]
- *
+ * if an array is supplied as the last parameter, it will be filled with arrays in each level
+ * e.g.: [rootArray, subArray, ..., parentArray]
  * @export
  * @param {any[]} array
  * @param {any} indices target value indices in a deep array. e.g. the indice of value `arr[i1][i2][i3]` is [i1, i2, i3]
+ * the last one can be an empty array to hold parents in each level
  * @returns {any}
  */
 export function pick(array: any[], ...indices): any {
 
   let last = indices.pop()
-  if (typeof last !== 'object') {
+  if (!isArray(last)) {
     indices.push(last)
     last = undefined
   }
 
   if (indices.length === 1) {
     let [ i ] = indices
+    if (typeof i !== 'number') {
+      throw Error(`Index ${i} is not a number`)
+    }
     if (array !== undefined && array.length > i) {
-      last && (last.parent = array)
       return array[i]
     }
-    throw new Error(`Out of bound`)
+    throw Error(`Out of bound`)
   }
 
   let [ first, ...rest ] = indices
-  last && rest.push(last)
+  last && last.push(array[first]) && rest.push(last)
   return pick(array[first], ...rest)
+}
+
+export function unflatten<T>(
+  arr: T[],
+  key: string,
+  connector: string | string[],
+  level: number = Infinity,
+): T {
+
+  return {} as T
 }
