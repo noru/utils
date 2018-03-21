@@ -2,7 +2,7 @@
   "compilerOptions": {
     /* Basic Options */
     "target": "es5",                          /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
-    "module": "commonjs",                     /* Specify module code generation: 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+    "module": "ESNext",                     /* Specify module code generation: 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
     "lib": [
       "es5",
       "es2015",
@@ -10,7 +10,7 @@
       "dom.iterable",
       "scripthost"
     ],                             /* Specify library files to be included in the compilation:  */
-    "allowJs": true,                       /* Allow javascript files to be compiled. */
+    // "allowJs": true,                       /* Allow javascript files to be compiled. */
     // "checkJs": true,                       /* Report errors in .js files. */
     // "jsx": "preserve",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
     // "declaration": true,                   /* Generates corresponding '.d.ts' file. */
@@ -48,7 +48,7 @@
       "chai",
       "jquery",
       "sinon"
-    ]                           /* Type declaration files to be included in compilation. */
+    ],                           /* Type declaration files to be included in compilation. */
     // "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
 
     /* Source Map Options */
@@ -60,5 +60,12 @@
     /* Experimental Options */
     // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
+    "exclude": [
+      "node_modules",
+      "dist",
+      "lib",
+      "docs",
+      "test"
+    ]
   }
 }

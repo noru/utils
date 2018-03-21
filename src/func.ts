@@ -35,8 +35,8 @@ export function flow(args?: any[] | any, ...funcs: _Function[]): any {
     args = [ args ]
   }
 
-  return funcs.reduce((left, right) => {
-    return left === args ? right(...left) : right(left)
+  return funcs.reduce((result, nextFunc) => {
+    return result === args ? nextFunc(...result) : nextFunc(result)
   }, args)
 
 }

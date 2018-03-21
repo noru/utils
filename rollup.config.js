@@ -2,12 +2,21 @@ import typescript from 'rollup-plugin-typescript2'
 import resolve from 'rollup-plugin-node-resolve'
 import uglify from 'rollup-plugin-uglify'
 import replace from 'rollup-plugin-replace'
-import commonjs from 'rollup-plugin-commonjs'
 
-const fs = require('fs');
+const fs = require('fs')
+
+const tsConfigForLib = typescript({
+  // clean: true,
+  exclude: [ "*.d.ts", "**/*.d.ts", "test/*" ],
+  tsconfigOverride: {
+    compilerOptions: {
+      declaration: true,
+      outDir: './test', // <-- this is fuxking magic, all other dir won't work. (I want .d.ts placed in the same folder with js)
+    }
+  },
+})
 
 const commonPlugins = [
-  typescript(),
   resolve({
     jsnext: true,
     main: true,
@@ -19,7 +28,7 @@ const commonPlugins = [
   }),
 ]
 
-let es = fs.readdirSync('./src').map(file => {
+let es = fs.readdirSync('./src').filter(f => !f.endsWith('.d.ts')).map(file => {
   return {
     input: './src/' + file,
     output: [
@@ -28,7 +37,7 @@ let es = fs.readdirSync('./src').map(file => {
         format: 'es',
       },
     ],
-    plugins: commonPlugins
+    plugins: [tsConfigForLib, ...commonPlugins]
   }
 })
 
@@ -42,6 +51,6 @@ export default [
         format: 'umd',
       },
     ],
-    plugins: [...commonPlugins, uglify()]
+    plugins: [typescript(), ...commonPlugins, uglify()]
   }
 ].concat(es)
