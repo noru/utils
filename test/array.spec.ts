@@ -41,18 +41,18 @@ describe('Array Utils', () => {
     expect(ArrayUtils.shallowEqual([{}], [{}])).to.be.false
 
     expect(ArrayUtils.shallowEqual({}, {})).to.be.true
-    expect(ArrayUtils.shallowEqual({ a: 1 }, { a: 1})).to.be.true
-    expect(ArrayUtils.shallowEqual({ a: 1 }, { a: 2})).to.be.false
-    expect(ArrayUtils.shallowEqual({ a: 1, b: {} }, { a: 1, b: {}})).to.be.false
+    expect(ArrayUtils.shallowEqual({ a: 1 }, { a: 1 })).to.be.true
+    expect(ArrayUtils.shallowEqual({ a: 1 }, { a: 2 })).to.be.false
+    expect(ArrayUtils.shallowEqual({ a: 1, b: {} }, { a: 1, b: {} })).to.be.false
   })
 
   it('deepMap', () => {
 
     let iteratee = x => x + 1
     expect(ArrayUtils.deepMap([1, 2, 3], iteratee)).to.be.deep.eq([2, 3, 4])
-    expect(ArrayUtils.deepMap([1, [2, 3, 4], 5], iteratee)).to.be.deep.eq([ 2, [ 3, 4, 5 ], 6 ])
-    expect(ArrayUtils.deepMap([[1, 2], [3, 4, 5 ], [6, 7]], iteratee))
-      .to.be.deep.eq([ [ 2, 3 ], [ 4, 5, 6 ], [ 7, 8 ] ])
+    expect(ArrayUtils.deepMap([1, [2, 3, 4], 5], iteratee)).to.be.deep.eq([2, [3, 4, 5], 6])
+    expect(ArrayUtils.deepMap([[1, 2], [3, 4, 5], [6, 7]], iteratee))
+      .to.be.deep.eq([[2, 3], [4, 5, 6], [7, 8]])
 
     expect(ArrayUtils.deepMap([[[[[1, 2, 3]]]]], iteratee)).to.be.deep.eq([[[[[2, 3, 4]]]]])
 
@@ -69,7 +69,7 @@ describe('Array Utils', () => {
     expect(posArray).to.deep.eq([[0], [1, 0], [1, 1], [1, 2], [2]])
 
     posArray.length = 0
-    ArrayUtils.deepMap([[1, 2], [3, 4, 5 ], [6, 7]], iteratee2)
+    ArrayUtils.deepMap([[1, 2], [3, 4, 5], [6, 7]], iteratee2)
     expect(posArray).to.deep.eq([[0, 0], [0, 1], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1]])
 
   })
@@ -83,7 +83,7 @@ describe('Array Utils', () => {
     expect(indice).to.deep.eq([0, 1, 2, 3, 4])
 
     indice.length = 0
-    ArrayUtils.deepMap([[1, 2], [3, 4, 5 ], [6, 7]], iteratee2)
+    ArrayUtils.deepMap([[1, 2], [3, 4, 5], [6, 7]], iteratee2)
     expect(indice).to.deep.eq([0, 1, 2, 3, 4, 5, 6])
 
   })
@@ -102,11 +102,11 @@ describe('Array Utils', () => {
     expect(arr).to.be.deep.eq([5, [2, [3, [4, 1]]]])
 
     arr = [undefined, 2]
-    ArrayUtils.swap(arr, 0 , 1)
+    ArrayUtils.swap(arr, 0, 1)
     expect(arr).to.be.deep.eq([2, undefined])
 
-    expect( function() { ArrayUtils.swap([1, 2], 0, 2)}).to.throw(Error)
-    expect( function() { ArrayUtils.swap([1, 2], 2, 0)}).to.throw(Error)
+    expect(function() { ArrayUtils.swap([1, 2], 0, 2) }).to.throw(Error)
+    expect(function() { ArrayUtils.swap([1, 2], 2, 0) }).to.throw(Error)
   })
 
   it('pick', () => {
@@ -116,11 +116,44 @@ describe('Array Utils', () => {
 
     let parents = []
     ArrayUtils.pick([1, [2, 4, 6, [1, 2, 3]], 3], 1, 3, 0, parents)
-    expect(parents).to.be.deep.eq([[2, 4, 6, [1, 2, 3]], [1, 2, 3]])
+    expect(parents).to.be.deep.eq([[1, [2, 4, 6, [1, 2, 3]], 3], [2, 4, 6, [1, 2, 3]], [1, 2, 3]])
 
   })
 
-  it.only('unflatten', () => {
-    expect(1).to.be.eq(2)
+  it('unflatten', () => {
+    let testee = [
+      { key: 1 },
+      { key: 2, parent: 1 },
+      { key: 3, parent: 1 },
+      { key: 4, parent: 2 },
+      { key: 5, parent: 3 },
+      { key: 6, parent: 4 },
+    ]
+    let expected = [
+      {
+        key: 1,
+        __children__: [
+          {
+            key: 2,
+            parent: 1,
+            __children__: [
+              {
+                key: 4,
+                parent: 2,
+                __children__: [{ key: 6, parent: 4 }],
+              },
+            ],
+          },
+          {
+            key: 3,
+            parent: 1,
+            __children__: [{ key: 5, parent: 3 }],
+          },
+        ],
+      },
+    ]
+    let unflattened = ArrayUtils.unflatten(testee, 'key', 'parent')
+    expect(unflattened).to.be.deep.eq(expected)
   })
+
 })

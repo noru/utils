@@ -201,3 +201,37 @@ export function flattenDeepBy<T>(obj: T | T[], propNameOrGetter: string | _Funct
   }
   return result
 }
+
+/**
+ * A simple version of lodash.defaults.
+ * e.g.:
+ * defaults({}, 'couldBeUndefined', { a: 1 }).countBeUndefined
+ * // { a: 1 }
+ * To avoid writing code like:
+ * let val = obj.someProp
+ * if (val === undefined) {
+ *   val = obj.someProp = defaultValue
+ * }
+ *
+ * @export
+ * @template T
+ * @param {T} original
+ * @param {string | number} prop
+ * @param {*} defaultVal
+ * @returns {T} mutated original object
+ */
+export function defaults<T1 extends object, T2>(
+  original: T1,
+  prop: string | number,
+  defaultVal: T2,
+): T1 & { [prop: string]: T2 } {
+
+  if (typeof original !== 'object') {
+    throw Error(`Original input must be an object, not ${typeof original}`)
+  }
+  let val = original[prop]
+  if (val === undefined) {
+    original[prop] = defaultVal
+  }
+  return original as any
+}

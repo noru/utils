@@ -7,6 +7,7 @@ describe('String Utils', () => {
     expect(StrUtils.ellipsis('hello', 5)).to.be.eq('hello')
     expect(StrUtils.ellipsis('helloworld!', 5)).to.be.eq('hello…')
 
+    // @ts-ignore
     expect(() => StrUtils.ellipsis(123, 2)).throws()
   })
 

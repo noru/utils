@@ -98,4 +98,15 @@ describe('ObjectUtil', () => {
     expect(flattened2.map(c => c.id)).to.be.deep.eq(['1', '2', '3', '4', '5'])
   })
 
+  it('defaults', () => {
+    expect(() => ObjectUtil.defaults(undefined!, 'a', [1, 2, 3])).throws(Error)
+    expect(() => ObjectUtil.defaults(123 as any, 'a', [1, 2, 3])).throws(Error)
+    expect(() => ObjectUtil.defaults('string' as any, 'a', [1, 2, 3])).throws(Error)
+
+    expect(ObjectUtil.defaults({}, 'a', [1, 2, 3]).a).to.be.deep.eq([1, 2, 3])
+    expect(ObjectUtil.defaults([], 'a', [1, 2, 3]).a).to.be.deep.eq([1, 2, 3])
+    expect(ObjectUtil.defaults({}, 'a', 1).a).to.be.deep.eq(1)
+    expect(ObjectUtil.defaults({ a: 2 }, 'a', 1).a).to.be.deep.eq(2)
+  })
+
 })

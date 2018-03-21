@@ -1,4 +1,5 @@
 import { isNumber } from './number'
+import { defaults } from './object'
 
 /**
  * To test if an argument is an Array
@@ -96,13 +97,13 @@ export function swap(arr: any[], pos1: number | number[], pos2: number | number[
   if (isNumber(pos1)) pos1 = [ pos1 ]
   if (isNumber(pos2)) pos2 = [ pos2 ]
 
-  let parent1: any = {}
-  let parent2: any = {}
-  let val1 = pick(arr, ...pos1, parent1) // pick (arr, 1,2,3 ,parent1)
+  let parent1: any = []
+  let parent2: any = []
+  let val1 = pick(arr, ...pos1, parent1)
   let val2 = pick(arr, ...pos2, parent2)
 
-  parent1.parent[pos1[pos1.length - 1]] = val2
-  parent2.parent[pos2[pos2.length - 1]] = val1
+  parent1[parent1.length - 1][pos1[pos1.length - 1]] = val2
+  parent2[parent2.length - 1][pos2[pos2.length - 1]] = val1
 
 }
 
@@ -128,25 +129,70 @@ export function pick(array: any[], ...indices): any {
   if (indices.length === 1) {
     let [ i ] = indices
     if (typeof i !== 'number') {
-      throw Error(`Index ${i} is not a number`)
+      throw Error(`Index ${JSON.stringify(i)} is not a number`)
     }
     if (array !== undefined && array.length > i) {
+      last && last.push(array)
       return array[i]
     }
     throw Error(`Out of bound`)
   }
 
   let [ first, ...rest ] = indices
-  last && last.push(array[first]) && rest.push(last)
+  last && last.push(array) && rest.push(last)
   return pick(array[first], ...rest)
 }
 
+/**
+ * Experiment feature...
+ *
+ * @export
+ * @template T
+ * @param {T[]} arr
+ * @param {string} keyProperty
+ * @param {string} linkProperty
+ * @param {string} [childrenProp='__children__']
+ * @returns {T[]}
+ */
 export function unflatten<T>(
   arr: T[],
-  key: string,
-  connector: string | string[],
-  level: number = Infinity,
-): T {
+  keyProperty: string,
+  linkProperty: string,
+  childrenProp: string = '__children__',
+): T[] {
 
-  return {} as T
+  if (arr.length === 0 || arr.length === 1) {
+    return arr
+  }
+
+  let result = new Array
+  let allMap  = new Map<any, any>()
+  let defered = new Map<any, T[]>()
+
+  arr.forEach(element => {
+
+    let link = element[linkProperty]
+    let key = element[keyProperty]
+    allMap.set(key, element)
+    if (!link) {
+      result.push(element)
+      let deferedChildren = defered.get(key)
+      if (deferedChildren) {
+        defaults(element as any, childrenProp, [])[childrenProp].push(element)
+      }
+    } else {
+      let parent = allMap.get(link)
+      if (parent) {
+        defaults(parent as any, childrenProp, [])[childrenProp].push(element)
+      } else {
+        let deferedList = defered.get(link) || new Array
+        deferedList.push(element)
+        defered.set(link, deferedList)
+      }
+    }
+  })
+
+  ; // cleanup
+  [defered, allMap].forEach(m => m.clear())
+  return result
 }
