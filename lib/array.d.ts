@@ -58,6 +58,23 @@ export declare function swap(arr: any[], pos1: number | number[], pos2: number |
  */
 export declare function pick(array: any[], ...indices: any[]): any;
 /**
+ * Perform binary search on a sorted array. Element will be fed to predict function, if true, the target is
+ * found and returned, otherwise onward function is called and the returned value determins the next
+ * move:
+ *   true  - left-ward continuance
+ *   false - right-ward continuance
+ *
+ * null is returned if none is suitable
+ *
+ * @export
+ * @template T
+ * @param {T[]} array
+ * @param {((i: T) => boolean | undefined)} predict
+ * @param {(i: T) => boolean} onward
+ * @returns {[T, number]| null} result and its index, null if not found
+ */
+export declare function binarySearch<T>(array: T[], predict: (i: T) => boolean, onward: (i: T) => boolean, start?: number, end?: number): [T, number] | null;
+/**
  * Experiment feature...
  *
  * @export
