@@ -1,5 +1,5 @@
 import { isNumber } from './number'
-import { defaults } from './object'
+import { defaults, isEmpty } from './object'
 
 /**
  * To test if an argument is an Array
@@ -141,6 +141,47 @@ export function pick(array: any[], ...indices): any {
   let [ first, ...rest ] = indices
   last && last.push(array) && rest.push(last)
   return pick(array[first], ...rest)
+}
+
+/**
+ * Perform binary search on a sorted array. Element will be fed to predict function, if true, the target is
+ * found and returned, otherwise onward function is called and the returned value determins the next
+ * move:
+ *   true  - left-ward continuance
+ *   false - right-ward continuance
+ *
+ * null is returned if none is suitable
+ *
+ * @export
+ * @template T
+ * @param {T[]} array
+ * @param {((i: T) => boolean | undefined)} predict
+ * @param {(i: T) => boolean} onward
+ * @returns {[T, number]| null} result and its index, null if not found
+ */
+export function binarySearch<T>(
+  array: T[],
+  predict: (i: T) => boolean,
+  onward: (i: T) => boolean,
+  start: number = 0,
+  end?: number ): [T, number] | null {
+
+  if (isEmpty(array)) return null
+
+  end = end || array.length
+
+  let midIndex = (start + end) / 2 | 0
+  let testee = array[midIndex]
+  if (predict(testee)) {
+    return [testee, midIndex]
+  }
+  if (midIndex === 0 || midIndex === array.length - 1) {
+    return null
+  }
+
+  let nextSection = onward(testee) ? [start, midIndex] : [midIndex, end]
+
+  return binarySearch(array, predict, onward, ...nextSection)
 }
 
 /**

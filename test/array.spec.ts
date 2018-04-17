@@ -156,4 +156,18 @@ describe('Array Utils', () => {
     expect(unflattened).to.be.deep.eq(expected)
   })
 
+  it('binarySearch', () => {
+
+    let arr = [1, 2, 3, 4, 5, 6]
+    let predict = t => i => i === t
+    let onward = t => i => i > t
+
+    expect(ArrayUtils.binarySearch(arr, predict(4), onward(4))).to.be.deep.eq([4, 3])
+    expect(ArrayUtils.binarySearch(arr, predict(1), onward(1))).to.be.deep.eq([1, 0])
+    expect(ArrayUtils.binarySearch(arr, predict(6), onward(6))).to.be.deep.eq([6, 5])
+    expect(ArrayUtils.binarySearch(arr, predict(7), onward(7))).to.be.null
+    expect(ArrayUtils.binarySearch(arr, predict(-1), onward(-1))).to.be.null
+
+  })
+
 })
