@@ -39,8 +39,7 @@ export function isBetween(
   inclusive: [boolean, boolean] = [true, true]) {
 
     let checkLeft = () => inclusive[0] ? testee >= min : testee > min
-    let checkRight = () => inclusive[1] ? testee <= max : testee < min
-
+    let checkRight = () => inclusive[1] ? testee <= max : testee < max
     return checkLeft() && checkRight()
 
 }

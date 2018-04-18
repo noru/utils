@@ -17,6 +17,8 @@ describe('Number Utils', () => {
     expect(NumUtil.isBetween(10, 1, 10)).to.be.true
     expect(NumUtil.isBetween(10, 1, 10, [false, false])).to.be.false
     expect(NumUtil.isBetween(1, 1, 10, [false, false])).to.be.false
+    expect(NumUtil.isBetween(4, 4, 7, [true, false])).to.be.true
+    expect(NumUtil.isBetween(7, 4, 7, [false, true])).to.be.true
 
   })
 
