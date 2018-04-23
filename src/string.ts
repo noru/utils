@@ -35,3 +35,16 @@ export function parseQuery(queryString): any {
   }
   return query
 }
+
+/**
+ * Like String.prototype.replace, except it replaces all occurrences
+ *
+ * @export
+ * @param {string} target
+ * @param {string} search
+ * @param {string} replacement
+ * @returns {string}
+ */
+export function replaceAll(target: string, search: string, replacement: string): string {
+  return target.replace(new RegExp(search, 'g'), replacement)
+}

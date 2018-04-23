@@ -21,4 +21,12 @@ describe('String Utils', () => {
 
   })
 
+  it('replace all', () => {
+
+    let target = 'The quick brown fox jumps over the lazy dog'
+    expect(StrUtils.replaceAll(target, ' ', '')).to.be.eq('Thequickbrownfoxjumpsoverthelazydog')
+    expect(StrUtils.replaceAll(target, 'o', '0')).to.be.eq('The quick br0wn f0x jumps 0ver the lazy d0g')
+
+  })
+
 })
