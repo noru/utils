@@ -17,3 +17,13 @@ export declare function ellipsis(str: string, limit: number): string;
  * @returns {any}
  */
 export declare function parseQuery(queryString: any): any;
+/**
+ * Like String.prototype.replace, except it replaces all occurrences
+ *
+ * @export
+ * @param {string} target
+ * @param {string} search
+ * @param {string} replacement
+ * @returns {string}
+ */
+export declare function replaceAll(target: string, search: string, replacement: string): string;
