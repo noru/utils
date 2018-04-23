@@ -1,3 +1,5 @@
+import { isArray } from './array'
+
 /**
  * Make a long string shorter and end with "…"
  *
@@ -31,7 +33,18 @@ export function parseQuery(queryString): any {
   for (let pair of pairs) {
     let [key, value] = pair.split('=')
     if (!key) continue
-    query[decodeURIComponent(key)] = decodeURIComponent(value || '')
+    let prop = decodeURIComponent(key)
+    let propVal = value === '' ? undefined : decodeURIComponent(value)
+    if (query[prop]) {
+      let val = query[prop]
+      if (isArray(val)) {
+        val.push(propVal)
+      } else {
+        query[prop] = [ val, propVal ]
+      }
+    } else {
+      query[decodeURIComponent(key)] = propVal
+    }
   }
   return query
 }

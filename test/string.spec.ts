@@ -17,6 +17,7 @@ describe('String Utils', () => {
     expect(StrUtils.parseQuery('?')).to.be.deep.eq({})
     expect(StrUtils.parseQuery('?a=1&b=2')).to.be.deep.eq({ a: '1', b: '2'})
     expect(StrUtils.parseQuery('a=1&b=2')).to.be.deep.eq({ a: '1', b: '2'})
+    expect(StrUtils.parseQuery(`a=1&a=2&a=${encodeURIComponent('#$%')}`)).to.be.deep.eq({ a: ['1', '2', '#$%'] })
     expect(StrUtils.parseQuery(`a=1&b=${encodeURIComponent('#$%')}`)).to.be.deep.eq({ a: '1', b: '#$%'})
 
   })
