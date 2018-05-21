@@ -27,3 +27,8 @@ export declare function parseQuery(queryString: any): any;
  * @returns {string}
  */
 export declare function replaceAll(target: string, search: string, replacement: string): string;
+/**
+ * calculate hash (32bit integer) from a string
+ * @param str
+ */
+export declare function hashOf(str?: string | null): number;
