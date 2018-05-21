@@ -61,3 +61,21 @@ export function parseQuery(queryString): any {
 export function replaceAll(target: string, search: string, replacement: string): string {
   return target.replace(new RegExp(search, 'g'), replacement)
 }
+
+/**
+ * calculate hash (32bit integer) from a string
+ * @param str
+ */
+export function hashOf(str: string | null = ''): number {
+  let hash = 0, i, chr
+  if (str === null) {
+    return hash
+  }
+  if (str.length === 0) return hash
+  for (i = 0; i < str.length; i++) {
+    chr   = str.charCodeAt(i)
+    hash  = ((hash << 5) - hash) + chr
+    hash |= 0 // Convert to 32bit integer
+  }
+  return hash
+}

@@ -30,4 +30,12 @@ describe('String Utils', () => {
 
   })
 
+  it('hashOf', () => {
+    expect(StrUtils.hashOf('')).to.be.eq(0)
+    expect(StrUtils.hashOf(undefined)).to.be.eq(0)
+    expect(StrUtils.hashOf(null)).to.be.eq(0)
+    expect(StrUtils.hashOf('str')).to.be.gt(0)
+
+  })
+
 })
