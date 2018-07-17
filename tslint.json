@@ -61,7 +61,8 @@
       "no-angle-bracket-type-assertion": false,
       "only-arrow-functions": false,
       "curly": [true, "ignore-same-line"],
-      "new-parens": false
+      "new-parens": false,
+      "no-reference": false
     },
     "rulesDirectory": []
 }

@@ -1,3 +1,5 @@
+///<reference path="./global.d.ts"/>
+
 import { isArray } from './array'
 export { shallowEqual, isArray } from './array'
 
