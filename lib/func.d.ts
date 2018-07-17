@@ -1,3 +1,4 @@
+/// <reference path="src/global.d.ts" />
 /**
  * Identity function, always return input itself
  *

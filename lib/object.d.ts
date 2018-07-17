@@ -1,3 +1,4 @@
+/// <reference path="src/global.d.ts" />
 export { shallowEqual, isArray } from './array';
 /**
  * Check argument is premitive or not
