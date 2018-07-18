@@ -3,6 +3,8 @@
   "version": "0.1.30",
   "description": "",
   "main": "src/index.ts",
+  "types": "src/index.ts",
+  "module": "src/index.ts",
   "scripts": {
     "docs": "typedoc --mode modules --out ./docs ./src/ --ignoreCompilerErrors && touch ./docs/.nojekyll",
     "dist": "npm run lint && npm run docs && rollup -c",
