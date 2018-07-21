@@ -18,11 +18,12 @@ export declare function noop(): void;
  * the returned value is passed to the next function as argument.
  *
  * @export
- * @param {(any[] | any)} [args] can be a single value or a list of values
+ * @template T
+ * @param {(any[] | any)} [args]
  * @param {..._Function[]} funcs
- * @returns {any}
+ * @returns {T}
  */
-export declare function flow(args?: any[] | any, ...funcs: _Function[]): any;
+export declare function flow<T = any>(args?: any[] | any, ...funcs: _Function[]): T;
 /**
  * Deprectated. Rename it to 'flow' as lodash
  *

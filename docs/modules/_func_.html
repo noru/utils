@@ -76,7 +76,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_func_.html#try" class="tsd-kind-icon">Try</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_func_.html#apply" class="tsd-kind-icon">apply</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_func_.html#attempt" class="tsd-kind-icon">attempt</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_func_.html#flow" class="tsd-kind-icon">flow</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_func_.html#flow" class="tsd-kind-icon">flow</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_func_.html#identity" class="tsd-kind-icon">identity</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_func_.html#noop" class="tsd-kind-icon">noop</a></li>
 							</ul>
@@ -96,7 +96,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a2e7641/src/func.ts#L83">func.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/44b0ffd/src/func.ts#L84">func.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -134,7 +134,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a2e7641/src/func.ts#L54">func.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/44b0ffd/src/func.ts#L55">func.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -169,7 +169,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a2e7641/src/func.ts#L66">func.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/44b0ffd/src/func.ts#L67">func.ts:67</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -194,17 +194,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="flow" class="tsd-anchor"></a>
 					<h3>flow</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">flow<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span>, <span class="tsd-signature-symbol">...</span>funcs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">_Function</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">flow&lt;T&gt;<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span>, <span class="tsd-signature-symbol">...</span>funcs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">_Function</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a2e7641/src/func.ts#L29">func.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/44b0ffd/src/func.ts#L30">func.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -215,8 +215,17 @@
 								<dl class="tsd-comment-tags">
 									<dt>export</dt>
 									<dd></dd>
+									<dt>template</dt>
+									<dd><p>T</p>
+									</dd>
 								</dl>
 							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -226,7 +235,7 @@
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>funcs: <span class="tsd-signature-type">_Function</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -240,7 +249,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a2e7641/src/func.ts#L11">func.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/44b0ffd/src/func.ts#L11">func.ts:11</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -272,7 +281,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a2e7641/src/func.ts#L18">func.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/44b0ffd/src/func.ts#L18">func.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -336,7 +345,7 @@
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_func_.html#attempt" class="tsd-kind-icon">attempt</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="_func_.html#flow" class="tsd-kind-icon">flow</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
