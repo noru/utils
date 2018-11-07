@@ -32,3 +32,14 @@ export declare function replaceAll(target: string, search: string, replacement: 
  * @param str
  */
 export declare function hashOf(str?: string | null): number;
+/**
+ * Padding a string or number with assigned content
+ *
+ * @export
+ * @param {(string | number)} origin target string
+ * @param {string} paddingContent, can be more than 1 char, however this function does not trim
+ * @param {number} threshold target length with padding
+ * @param {boolean} [left=true] padding left or right
+ * @returns {string}
+ */
+export declare function padding(origin: string | number, paddingContent: string, threshold: number, left?: boolean): string;
