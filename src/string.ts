@@ -79,3 +79,24 @@ export function hashOf(str: string | null = ''): number {
   }
   return hash
 }
+
+/**
+ * Padding a string or number with assigned content
+ *
+ * @export
+ * @param {(string | number)} origin target string
+ * @param {string} paddingContent, can be more than 1 char, however this function does not trim
+ * @param {number} threshold target length with padding
+ * @param {boolean} [left=true] padding left or right
+ * @returns {string}
+ */
+export function padding(origin: string | number, paddingContent: string, threshold: number, left = true): string {
+
+  origin = String(origin)
+  if (origin.length >= threshold) {
+    return origin
+  }
+
+  let paddingStr = Array(threshold - origin.length).fill(paddingContent).join('')
+  return left ? paddingStr + origin : origin + paddingStr
+}
