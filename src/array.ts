@@ -131,7 +131,7 @@ export function pick(array: any[], ...indices): any {
     if (typeof i !== 'number') {
       throw Error(`Index ${JSON.stringify(i)} is not a number`)
     }
-    if (array !== undefined && array.length > i) {
+    if (array !== undefined && array.length > i && i > -1) {
       last && last.push(array)
       return array[i]
     }
