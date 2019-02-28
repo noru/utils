@@ -16,7 +16,7 @@ if (isTravis) {
 
 module.exports = function(config) {
   config.set({
-    frameworks: ['mocha', 'chai', 'karma-typescript', 'jquery-1.8.3'],
+    frameworks: ['mocha', 'chai', 'sinon', 'karma-typescript', 'jquery-1.8.3'],
     singleRun: isTravis,
     files: [
       { pattern: 'src/**/*.ts' },
@@ -42,6 +42,15 @@ module.exports = function(config) {
       compilerOptions: {
         allowJs: true,
         moduleResolution: 'node',
+        lib: [
+          "es6",
+          "es2015",
+          "es2016",
+          "es2017",
+          "dom",
+          "dom.iterable",
+          "scripthost"
+        ]
       }
     }
   });

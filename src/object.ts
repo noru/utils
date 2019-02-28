@@ -1,6 +1,5 @@
-///<reference path="./global.d.ts"/>
-
 import { isArray } from './array'
+import { Func } from './func'
 export { shallowEqual, isArray } from './array'
 
 /**
@@ -176,10 +175,10 @@ export function isEmpty(obj: any): boolean {
  * @export
  * @template T
  * @param {(T | T[])} obj target to be flattened
- * @param {(string | _Function)} propNameOrGetter name or getter of the target array
+ * @param {(string | Func)} propNameOrGetter name or getter of the target array
  * @returns {T[]}
  */
-export function flattenDeepBy<T>(obj: T | T[], propNameOrGetter: string | _Function ): T[] {
+export function flattenDeepBy<T>(obj: T | T[], propNameOrGetter: string | Func ): T[] {
 
   if (isEmpty(obj) || typeof obj === 'number' || typeof obj === 'string') {
     return []

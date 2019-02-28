@@ -1,14 +1,18 @@
-///<reference path="./global.d.ts"/>
+export type Func<T = any> = (...args: any[]) => T
+export type Func1<T = any> = (arg1: any) => T
+export type Func2<T = any> = (arg1: any, arg2: any) => T
+
 import { isArray } from './array'
 
 /**
  * Identity function, always return input itself
  *
  * @export
- * @param {any} self
- * @returns
+ * @template T
+ * @param {T} self
+ * @returns {T}
  */
-export function identity(self) { return self }
+export function identity<T>(self: T): T { return self }
 
 /**
  * A function that does nothing
@@ -24,10 +28,10 @@ export function noop() { /* noop */ }
  * @export
  * @template T
  * @param {(any[] | any)} [args]
- * @param {..._Function[]} funcs
+ * @param {...Func[]} funcs
  * @returns {T}
  */
-export function flow<T = any>(args?: any[] | any, ...funcs: _Function[]): T {
+export function flow<T = any>(args?: any[] | any, ...funcs: Func[]): T {
 
   if (funcs.length === 0) {
     return args
@@ -44,43 +48,20 @@ export function flow<T = any>(args?: any[] | any, ...funcs: _Function[]): T {
 }
 
 /**
- * Deprectated. Rename it to 'flow' as lodash
- *
- * @deprecated {{flow}}{{}}
- * @export
- * @param {(any[] | any)} [args] can be a single value or a list of values
- * @param {..._Function[]} funcs
- * @returns {any}
- */
-export function apply(...args) {
-  return flow(...args)
-}
-
-/**
- * Simple try catch wrapper that returns a default value if exception was raised
+ * Simple try catch wrapper that returns a default value if exception was raised.
+ * If silent = false, there will be a 'console.error' call.
  *
  * @export
- * @param {() => any} func
- * @param {*} defaultValue
+ * @param {Func} func
+ * @param {*} [defaultValue]
+ * @param {boolean} [silent=true]
  * @returns {*}
  */
-export function attempt(func: _Function, defaultValue?: any): any {
+export function attempt<T>(func: Func<T>, defaultValue?: T, silent: boolean = true): T | undefined {
   try {
     return func()
-  } catch {
+  } catch (e) {
+    !silent && console.error(e)
     return defaultValue
   }
-}
-
-/**
- * Simple try catch wrapper that returns a default value if exception was raised
- *
- * @deprecated {{renamed to attempt}}{{}}
- * @export
- * @param {() => any} func
- * @param {*} defaultValue
- * @returns {*}
- */
-export function Try(func: _Function, defaultValue?: any) {
-  return attempt(func, defaultValue)
 }

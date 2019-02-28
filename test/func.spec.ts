@@ -1,4 +1,5 @@
 import * as FuncUtils from '../src/func'
+import { spy } from 'sinon'
 
 describe('String Utils', () => {
 
@@ -31,6 +32,12 @@ describe('String Utils', () => {
     expect(FuncUtils.attempt(() => { throw new Error() })).to.be.undefined
     expect(FuncUtils.attempt(() => { throw new Error() }, 1)).to.be.eq(1)
     expect(FuncUtils.attempt(() => 2, 1)).to.be.eq(2)
+
+    let _spy = spy(console, 'error')
+    FuncUtils.attempt(() => { throw new Error() })
+    expect(_spy.called).to.be.false
+    FuncUtils.attempt(() => { throw new Error() }, undefined, false)
+    expect(_spy.called).to.be.true
 
   })
 

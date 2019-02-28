@@ -1,7 +1,7 @@
 import typescript from 'rollup-plugin-typescript2'
 import resolve from 'rollup-plugin-node-resolve'
-import uglify from 'rollup-plugin-uglify'
 import replace from 'rollup-plugin-replace'
+import cleanup from 'rollup-plugin-cleanup'
 
 const fs = require('fs')
 
@@ -26,6 +26,7 @@ const commonPlugins = [
     exclude: 'node_modules/**',
     ___ENV___: JSON.stringify(process.env.NODE_ENV || 'production'),
   }),
+  cleanup({ extensions: ['ts'] }),
 ]
 
 let es = fs.readdirSync('./src').filter(f => !f.endsWith('.d.ts')).map(file => {
@@ -41,16 +42,4 @@ let es = fs.readdirSync('./src').filter(f => !f.endsWith('.d.ts')).map(file => {
   }
 })
 
-export default [
-  {
-    name: 'Utils',
-    input: './src/index.ts',
-    output: [
-      {
-        file: './dist/utils.umd.js',
-        format: 'umd',
-      },
-    ],
-    plugins: [typescript(), ...commonPlugins, uglify()]
-  }
-].concat(es)
+export default es
