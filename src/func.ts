@@ -25,6 +25,7 @@ export function noop() { /* noop */ }
  * Given an initmial argument and a list of functions, each function will be executed sequentially, and
  * the returned value is passed to the next function as argument.
  *
+ * @deprecated {{in favor of compose}}{{}}
  * @export
  * @template T
  * @param {(any[] | any)} [args]
@@ -45,6 +46,17 @@ export function flow<T = any>(args?: any[] | any, ...funcs: Func[]): T {
     return result === args ? nextFunc(...result) : nextFunc(result)
   }, args)
 
+}
+
+export function compose<T = any>(...funcs: Func[]): (...args: any[]) => T {
+
+  if (funcs.length === 0) {
+    return identity
+  }
+
+  return (...args: any[]) => funcs.reduce<any>((result, nextFunc) => {
+    return result === args ? nextFunc(...result) : nextFunc(result)
+  }, args)
 }
 
 /**

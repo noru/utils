@@ -25,6 +25,25 @@ describe('String Utils', () => {
 
   })
 
+  it('compose', () => {
+
+    expect(FuncUtils.compose()).to.be.eq(FuncUtils.identity)
+
+    let increment = x => x + 1
+    let double = x => x * 2
+    let sum = (x, y) => x + y
+
+    expect(FuncUtils.compose(increment, increment)(0)).to.be.eq(2)
+    expect(FuncUtils.compose(increment, increment, double)(0)).to.be.eq(4)
+    expect(FuncUtils.compose(sum, increment, double)(1, 2)).to.be.eq(8)
+
+    let arg = {}
+    expect(FuncUtils.compose()()).to.be.undefined
+    expect(FuncUtils.compose()(arg)).to.be.eq(arg)
+    expect(FuncUtils.compose()(null)).to.be.null
+
+  })
+
   it('attempt', () => {
 
     expect(FuncUtils.attempt(() => undefined)).to.not.throws
