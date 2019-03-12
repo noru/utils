@@ -114,7 +114,6 @@ describe('is', () => {
     expect(is.isEmpty([2, 3, 4])).to.be.false
     expect(is.isEmpty({ test: 1 })).to.be.false
     expect(is.isEmpty({length: 0, custom_property: []})).to.be.true
-
   })
 
 })
