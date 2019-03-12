@@ -2,7 +2,7 @@ import { Func, Func0, Func1, Func2, Func3, Func4 } from '../src/types'
 
 describe('types', () => {
 
-  test('Function types', () => {
+  it('Function types', () => {
     let func: Func<string> = (_, __) => '23'
     let func$: Func<0> = () => 0
     let func$$: Func<number> = (_, __, ___) => 123
