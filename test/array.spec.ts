@@ -15,23 +15,6 @@ describe('Array Utils', () => {
 
   })
 
-  it('isArray', () => {
-
-    expect(ArrayUtils.isArray([])).to.be.true
-    expect(ArrayUtils.isArray([1, 2, 3])).to.be.true
-    expect(ArrayUtils.isArray([, , ])).to.be.true
-
-    expect(ArrayUtils.isArray(1)).to.be.false
-    expect(ArrayUtils.isArray({})).to.be.false
-    expect(ArrayUtils.isArray(false)).to.be.false
-    expect(ArrayUtils.isArray(undefined)).to.be.false
-    expect(ArrayUtils.isArray(null)).to.be.false
-    expect(ArrayUtils.isArray('')).to.be.false
-    expect(ArrayUtils.isArray(Symbol())).to.be.false
-    expect(ArrayUtils.isArray(() => { /**/ })).to.be.false
-
-  })
-
   it('shallowEqual', () => {
 
     expect(ArrayUtils.shallowEqual([], [])).to.be.true

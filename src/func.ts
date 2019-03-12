@@ -1,8 +1,5 @@
-export type Func<T = any> = (...args: any[]) => T
-export type Func1<T = any> = (arg1: any) => T
-export type Func2<T = any> = (arg1: any, arg2: any) => T
-
-import { isArray } from './array'
+import { isArray } from './is'
+import { Func } from './types'
 
 /**
  * Identity function, always return input itself
@@ -12,14 +9,18 @@ import { isArray } from './array'
  * @param {T} self
  * @returns {T}
  */
-export function identity<T>(self: T): T { return self }
+export function identity<T>(self: T): T {
+  return self
+}
 
 /**
  * A function that does nothing
  *
  * @export
  */
-export function noop() { /* noop */ }
+export function noop() {
+  /* noop */
+}
 
 /**
  * Given an initmial argument and a list of functions, each function will be executed sequentially, and
@@ -33,30 +34,28 @@ export function noop() { /* noop */ }
  * @returns {T}
  */
 export function flow<T = any>(args?: any[] | any, ...funcs: Func[]): T {
-
   if (funcs.length === 0) {
     return args
   }
 
   if (!isArray(args)) {
-    args = [ args ]
+    args = [args]
   }
 
   return funcs.reduce((result, nextFunc) => {
     return result === args ? nextFunc(...result) : nextFunc(result)
   }, args)
-
 }
 
 export function compose<T = any>(...funcs: Func[]): (...args: any[]) => T {
-
   if (funcs.length === 0) {
     return identity
   }
 
-  return (...args: any[]) => funcs.reduce<any>((result, nextFunc) => {
-    return result === args ? nextFunc(...result) : nextFunc(result)
-  }, args)
+  return (...args: any[]) =>
+    funcs.reduce<any>((result, nextFunc) => {
+      return result === args ? nextFunc(...result) : nextFunc(result)
+    }, args)
 }
 
 /**

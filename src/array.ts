@@ -1,22 +1,5 @@
-import { isNumber } from './number'
-import { defaults, isEmpty } from './object'
-
-/**
- * To test if an argument is an Array
- *
- * @export
- * @param {*} testee
- * @returns {boolean}
- */
-export function isArray(testee: any): testee is any[] {
-
-  if (Array.isArray) {
-    return Array.isArray(testee)
-  }
-
-  return Object.prototype.toString.call(testee) === '[object Array]'
-
-}
+import { isNumber, isArray, isEmpty } from './is'
+import { defaults } from './object'
 
 /**
  * Check if an array contains any elements.
@@ -46,21 +29,17 @@ export function deepMap(
   pos: number[] = [],
   index: any = { i: 0 },
 ) {
-
   if (!isArray(deepArray)) {
-    throw new Error(`Argument is not an array: ${deepArray}. position: ${pos}` )
+    throw new Error(`Argument is not an array: ${deepArray}. position: ${pos}`)
   }
 
   return deepArray.map((item, i) => {
-
     if (isArray(item)) {
       return deepMap(item, iteratee, [...pos, i], index)
     } else {
       return iteratee(item, [...pos, i], index.i++)
     }
-
   })
-
 }
 
 /**
@@ -72,16 +51,14 @@ export function deepMap(
  * @returns {boolean}
  */
 export function shallowEqual(a: object | any[], b: object | any[]): boolean {
-
-  if (a === b)                return true
+  if (a === b) return true
   if (a == null || b == null) return false
-  if ((a as any[]).length !== (b as any[]).length)  return false
+  if ((a as any[]).length !== (b as any[]).length) return false
 
   for (let i in a) {
     if (a[i] !== b[i]) return false
   }
   return true
-
 }
 /**
  * Swap value of array's two postions
@@ -93,9 +70,8 @@ export function shallowEqual(a: object | any[], b: object | any[]): boolean {
  * @returns arr
  */
 export function swap(arr: any[], pos1: number | number[], pos2: number | number[]): void {
-
-  if (isNumber(pos1)) pos1 = [ pos1 ]
-  if (isNumber(pos2)) pos2 = [ pos2 ]
+  if (isNumber(pos1)) pos1 = [pos1]
+  if (isNumber(pos2)) pos2 = [pos2]
 
   let parent1: any = []
   let parent2: any = []
@@ -104,7 +80,6 @@ export function swap(arr: any[], pos1: number | number[], pos2: number | number[
 
   parent1[parent1.length - 1][pos1[pos1.length - 1]] = val2
   parent2[parent2.length - 1][pos2[pos2.length - 1]] = val1
-
 }
 
 /**
@@ -119,7 +94,6 @@ export function swap(arr: any[], pos1: number | number[], pos2: number | number[
  * @returns {any}
  */
 export function pick(array: any[], ...indices): any {
-
   let last = indices.pop()
   if (!isArray(last)) {
     indices.push(last)
@@ -127,7 +101,7 @@ export function pick(array: any[], ...indices): any {
   }
 
   if (indices.length === 1) {
-    let [ i ] = indices
+    let [i] = indices
     if (typeof i !== 'number') {
       throw Error(`Index ${JSON.stringify(i)} is not a number`)
     }
@@ -138,7 +112,7 @@ export function pick(array: any[], ...indices): any {
     throw Error(`Out of bound`)
   }
 
-  let [ first, ...rest ] = indices
+  let [first, ...rest] = indices
   last && last.push(array) && rest.push(last)
   return pick(array[first], ...rest)
 }
@@ -164,13 +138,13 @@ export function binarySearch<T>(
   predict: (i: T) => boolean,
   onward: (i: T) => boolean,
   start: number = 0,
-  end?: number ): [T, number] | null {
-
+  end?: number,
+): [T, number] | null {
   if (isEmpty(array)) return null
 
   end = end || array.length
 
-  let midIndex = (start + end) / 2 | 0
+  let midIndex = ((start + end) / 2) | 0
   let testee = array[midIndex]
   if (predict(testee)) {
     return [testee, midIndex]
@@ -201,17 +175,15 @@ export function unflatten<T>(
   linkProperty: string,
   childrenProp: string = '__children__',
 ): T[] {
-
   if (arr.length === 0 || arr.length === 1) {
     return arr
   }
 
-  let result = new Array
-  let allMap  = new Map<any, any>()
+  let result = new Array()
+  let allMap = new Map<any, any>()
   let defered = new Map<any, T[]>()
 
   arr.forEach(element => {
-
     let link = element[linkProperty]
     let key = element[keyProperty]
     allMap.set(key, element)
@@ -226,14 +198,12 @@ export function unflatten<T>(
       if (parent) {
         defaults(parent as any, childrenProp, [])[childrenProp].push(element)
       } else {
-        let deferedList = defered.get(link) || new Array
+        let deferedList = defered.get(link) || new Array()
         deferedList.push(element)
         defered.set(link, deferedList)
       }
     }
-  })
-
-  ; // cleanup
-  [defered, allMap].forEach(m => m.clear())
+  }) // cleanup
+  ; [defered, allMap].forEach(m => m.clear())
   return result
 }

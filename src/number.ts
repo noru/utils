@@ -1,15 +1,4 @@
 /**
- * To test if the input is a number
- *
- * @export
- * @param {*} testee
- * @returns {testee is number}
- */
-export function isNumber(testee: any): testee is number {
-  return typeof testee === 'number'
-}
-
-/**
  * Convert a number to percentage
  * e.g.: 0.98 => 98%
  *
@@ -32,14 +21,8 @@ export function toPercentage(num: number, digit = 0) {
  * @param {[boolean, boolean]} [inclusive=[true, true]] [left, right] side inclusive or not
  * @returns
  */
-export function isBetween(
-  testee: number,
-  min: number,
-  max: number,
-  inclusive: [boolean, boolean] = [true, true]) {
-
-    let checkLeft = () => inclusive[0] ? testee >= min : testee > min
-    let checkRight = () => inclusive[1] ? testee <= max : testee < max
-    return checkLeft() && checkRight()
-
+export function isBetween(testee: number, min: number, max: number, inclusive: [boolean, boolean] = [true, true]) {
+  let checkLeft = () => (inclusive[0] ? testee >= min : testee > min)
+  let checkRight = () => (inclusive[1] ? testee <= max : testee < max)
+  return checkLeft() && checkRight()
 }

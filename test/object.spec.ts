@@ -2,17 +2,6 @@ import * as ObjectUtil from '../src/object'
 
 describe('ObjectUtil', () => {
 
-  it('isPremitive', () => {
-
-    expect(ObjectUtil.isPremitive('hi')).to.be.true
-    expect(ObjectUtil.isPremitive(1)).to.be.true
-    expect(ObjectUtil.isPremitive(null)).to.be.true
-    expect(ObjectUtil.isPremitive(undefined)).to.be.true
-    expect(ObjectUtil.isPremitive(new Date())).to.be.false
-    expect(ObjectUtil.isPremitive({})).to.be.false
-
-  })
-
   it('recursiveCopy', () => {
       expect(ObjectUtil.recursiveCopy(null)).to.be.eq(null)
       let testObj = {a: 0, b: { c: 1, d: 'hello'}, e: [1, 2, [3, 3, 3]]}
@@ -49,18 +38,6 @@ describe('ObjectUtil', () => {
      expect(ObjectUtil.merge(a, b, 'hello')).to.be.eq('hello')
      expect(ObjectUtil.merge('hello', 123, a)).to.be.deep.eq(aUbUc)
      expect(ObjectUtil.merge(aUbUc, a, b, c)).to.be.deep.eq(aUbUc)
-  })
-
-  it('isEmpty', () => {
-    expect(ObjectUtil.isEmpty('')).to.be.true
-    expect(ObjectUtil.isEmpty({})).to.be.true
-    expect(ObjectUtil.isEmpty([])).to.be.true
-    expect(ObjectUtil.isEmpty(33)).to.be.false
-    expect(ObjectUtil.isEmpty('hello')).to.be.false
-    expect(ObjectUtil.isEmpty([2, 3, 4])).to.be.false
-    expect(ObjectUtil.isEmpty({ test: 1 })).to.be.false
-    expect(ObjectUtil.isEmpty({length: 0, custom_property: []})).to.be.true
-
   })
 
   it('flattenDeepBy', () => {

@@ -1,4 +1,4 @@
-import { isArray } from './array'
+import { isArray } from './is'
 
 /**
  * Make a long string shorter and end with "…"
