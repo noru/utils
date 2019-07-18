@@ -42,6 +42,7 @@ export function toggleFullscreen() {
  */
 /* istanbul ignore next */
 export function isFullscreen(): boolean {
+  let document = (window.document as any)
   return !!document.fullscreenElement || !!document.webkitFullscreenElement
 }
 
