@@ -1,6 +1,4 @@
-export declare type Func<T = any> = (...args: any[]) => T;
-export declare type Func1<T = any> = (arg1: any) => T;
-export declare type Func2<T = any> = (arg1: any, arg2: any) => T;
+import { Func } from './types';
 /**
  * Identity function, always return input itself
  *

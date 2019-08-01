@@ -1,6 +1,6 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { identity } from '../func'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { identity } from '../../func'
 
 export interface BoundingClientRect {
   width: number
@@ -21,8 +21,10 @@ const defaultConfig = {
   delay: 1000,
 }
 
-const hocWithConfig = (Component, config: Config) => {
-  class Composed extends React.Component {
+type WithClientRect<P> = P & { clientRect: BoundingClientRect }
+
+function hocWithConfig<P>(Component: React.ComponentClass<P> | React.SFC<P>, config: Config) {
+  class Composed extends React.Component<WithClientRect<P>> {
     static displayName = `withBoundingRect<${Component.displayName || Component.name || 'Unknown'}>`
     state: BoundingClientRect = {
       width: 0,
@@ -73,7 +75,7 @@ const hocWithConfig = (Component, config: Config) => {
     }
   }
 
-  return Composed
+  return Composed as React.ComponentClass<WithClientRect<P>>
 }
 
 export function withBoundingRect(config: Partial<Config> = {}) {

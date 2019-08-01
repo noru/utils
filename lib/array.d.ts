@@ -1,12 +1,4 @@
 /**
- * To test if an argument is an Array
- *
- * @export
- * @param {*} testee
- * @returns {boolean}
- */
-export declare function isArray(testee: any): testee is any[];
-/**
  * Check if an array contains any elements.
  * null/undefined are considered empty.
  *

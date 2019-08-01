@@ -204,6 +204,7 @@ export function unflatten<T>(
       }
     }
   }) // cleanup
+  // tslint:disable-next-line:align
   ; [defered, allMap].forEach(m => m.clear())
   return result
 }

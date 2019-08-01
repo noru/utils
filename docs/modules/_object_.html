@@ -75,10 +75,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_object_.html#defaults" class="tsd-kind-icon">defaults</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_object_.html#flattendeepby" class="tsd-kind-icon">flatten<wbr>Deep<wbr>By</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#isempty" class="tsd-kind-icon">is<wbr>Empty</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#isequal" class="tsd-kind-icon">is<wbr>Equal</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#ispremitive" class="tsd-kind-icon">is<wbr>Premitive</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_object_.html#isundefinedornull" class="tsd-kind-icon">is<wbr>Undefined<wbr>OrNull</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#merge" class="tsd-kind-icon">merge</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#recursivecopy" class="tsd-kind-icon">recursive<wbr>Copy</a></li>
 							</ul>
@@ -98,7 +95,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/2875491/src/object.ts#L224">object.ts:224</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/6d6f3ee/src/object.ts#L172">object.ts:172</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -154,13 +151,13 @@
 					<a name="flattendeepby" class="tsd-anchor"></a>
 					<h3>flatten<wbr>Deep<wbr>By</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">flatten<wbr>Deep<wbr>By&lt;T&gt;<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, propNameOrGetter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_func_.html#func" class="tsd-signature-type">Func</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">flatten<wbr>Deep<wbr>By&lt;T&gt;<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, propNameOrGetter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_types_.html#func" class="tsd-signature-type">Func</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/2875491/src/object.ts#L181">object.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/6d6f3ee/src/object.ts#L129">object.ts:129</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -209,45 +206,13 @@
 									</div>
 								</li>
 								<li>
-									<h5>propNameOrGetter: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_func_.html#func" class="tsd-signature-type">Func</a></h5>
+									<h5>propNameOrGetter: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_types_.html#func" class="tsd-signature-type">Func</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>name or getter of the target array</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="isempty" class="tsd-anchor"></a>
-					<h3>is<wbr>Empty</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Empty<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/2875491/src/object.ts#L128">object.ts:128</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p> Check input param is &quot;Empty&quot;: undefined or null or {}, []</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>obj: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -261,7 +226,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/2875491/src/object.ts#L59">object.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/6d6f3ee/src/object.ts#L48">object.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -292,66 +257,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="ispremitive" class="tsd-anchor"></a>
-					<h3>is<wbr>Premitive</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Premitive<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/2875491/src/object.ts#L12">object.ts:12</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Check argument is premitive or not</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>obj: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-					<a name="isundefinedornull" class="tsd-anchor"></a>
-					<h3>is<wbr>Undefined<wbr>OrNull</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Undefined<wbr>OrNull<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/2875491/src/object.ts#L117">object.ts:117</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Check input param is undefined or null</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>param: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="merge" class="tsd-anchor"></a>
 					<h3>merge</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -361,7 +266,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/2875491/src/object.ts#L95">object.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/6d6f3ee/src/object.ts#L84">object.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -396,7 +301,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/2875491/src/object.ts#L22">object.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/6d6f3ee/src/object.ts#L11">object.ts:11</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -449,6 +354,9 @@
 						<a href="_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_is_.html">"is"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_number_.html">"number"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
@@ -458,7 +366,16 @@
 						<a href="_random_.html">"random"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_react_helpers_.html">"react/helpers"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_react_hoc_withboundingrect_.html">"react/hoc/with<wbr>Bounding<wbr>Rect"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_string_.html">"string"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_types_.html">"types"</a>
 					</li>
 				</ul>
 			</nav>
@@ -471,16 +388,7 @@
 						<a href="_object_.html#flattendeepby" class="tsd-kind-icon">flatten<wbr>Deep<wbr>By</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_object_.html#isempty" class="tsd-kind-icon">is<wbr>Empty</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_object_.html#isequal" class="tsd-kind-icon">is<wbr>Equal</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_object_.html#ispremitive" class="tsd-kind-icon">is<wbr>Premitive</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_object_.html#isundefinedornull" class="tsd-kind-icon">is<wbr>Undefined<wbr>OrNull</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_object_.html#merge" class="tsd-kind-icon">merge</a>
@@ -505,6 +413,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -553,7 +462,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

@@ -43,3 +43,11 @@ export declare function hashOf(str?: string | null): number;
  * @returns {string}
  */
 export declare function padding(origin: string | number, paddingContent: string, threshold: number, left?: boolean): string;
+/**
+ * Capitalize first char of a string
+ *
+ * @export
+ * @param {string} origin
+ * @returns {string} firstLetterCapitalized
+ */
+export declare function capitalizeFirst(origin: string): string;

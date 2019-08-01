@@ -7,3 +7,5 @@ export * from './random';
 export * from './string';
 export * from './dom';
 export * from './assertions';
+export * from './is';
+export * from './types';

@@ -11,7 +11,6 @@ import { isArray } from './is'
  * @returns {string}
  */
 export function ellipsis(str: string, limit: number): string {
-
   if (typeof str !== 'string') {
     throw new Error(`${JSON.stringify(str)} is not a string`)
   }
@@ -40,7 +39,7 @@ export function parseQuery(queryString): any {
       if (isArray(val)) {
         val.push(propVal)
       } else {
-        query[prop] = [ val, propVal ]
+        query[prop] = [val, propVal]
       }
     } else {
       query[decodeURIComponent(key)] = propVal
@@ -67,14 +66,16 @@ export function replaceAll(target: string, search: string, replacement: string):
  * @param str
  */
 export function hashOf(str: string | null = ''): number {
-  let hash = 0, i, chr
+  let hash = 0,
+    i,
+    chr
   if (str === null) {
     return hash
   }
   if (str.length === 0) return hash
   for (i = 0; i < str.length; i++) {
-    chr   = str.charCodeAt(i)
-    hash  = ((hash << 5) - hash) + chr
+    chr = str.charCodeAt(i)
+    hash = (hash << 5) - hash + chr
     hash |= 0 // Convert to 32bit integer
   }
   return hash
@@ -91,12 +92,24 @@ export function hashOf(str: string | null = ''): number {
  * @returns {string}
  */
 export function padding(origin: string | number, paddingContent: string, threshold: number, left = true): string {
-
   origin = String(origin)
   if (origin.length >= threshold) {
     return origin
   }
 
-  let paddingStr = Array(threshold - origin.length).fill(paddingContent).join('')
+  let paddingStr = Array(threshold - origin.length)
+    .fill(paddingContent)
+    .join('')
   return left ? paddingStr + origin : origin + paddingStr
+}
+
+/**
+ * Capitalize first char of a string
+ *
+ * @export
+ * @param {string} origin
+ * @returns {string} firstLetterCapitalized
+ */
+export function capitalizeFirst(origin: string): string {
+  return origin.charAt(0).toUpperCase() + origin.slice(1)
 }

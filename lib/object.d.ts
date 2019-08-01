@@ -1,13 +1,5 @@
-import { Func } from './func';
-export { shallowEqual, isArray } from './array';
-/**
- * Check argument is premitive or not
- *
- * @export
- * @param {*} obj
- * @returns {boolean}
- */
-export declare function isPremitive(obj: any): boolean;
+import { Func } from './types';
+export { shallowEqual } from './array';
 /**
  * Deep clone one object
  * @export
@@ -35,14 +27,6 @@ export declare function isEqual(obj1: any, obj2: any): boolean | undefined;
  * @returns
  */
 export declare function merge(...argument: any[]): any;
-/**
- *  Check input param is "Empty": undefined or null or {}, []
- *
- * @export
- * @param {any} obj
- * @returns {boolean}
- */
-export declare function isEmpty(obj: any): boolean;
 /**
  * Like lodash.flattenDeep, except it flattens an array property of an object. e.g.:
  * {

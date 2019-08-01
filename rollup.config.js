@@ -4,20 +4,22 @@ import replace from 'rollup-plugin-replace'
 import cleanup from 'rollup-plugin-cleanup'
 
 const fs = require('fs')
+const path = require('path')
 
 const tsConfigForLib = typescript({
-  // clean: true,
-  exclude: [ "*.d.ts", "**/*.d.ts", "test/*" ],
+  clean: true,
+  exclude: ['*.d.ts', '**/*.d.ts', 'test/*'],
   tsconfigOverride: {
     compilerOptions: {
       declaration: true,
-      outDir: './test', // <-- this is fuxking magic, all other dir won't work. (I want .d.ts placed in the same folder with js)
-    }
+      // outDir: './test', // <-- this is fuxking magic, all other dir won't work. (I want .d.ts placed in the same folder with js)
+    },
   },
 })
 
 const commonPlugins = [
   resolve({
+    module: true,
     jsnext: true,
     main: true,
     browser: true,
@@ -26,20 +28,49 @@ const commonPlugins = [
     exclude: 'node_modules/**',
     ___ENV___: JSON.stringify(process.env.NODE_ENV || 'production'),
   }),
-  cleanup({ extensions: ['ts'] }),
+  cleanup({ extensions: ['ts', 'tsx'] }),
 ]
 
-let es = fs.readdirSync('./src').filter(f => !f.endsWith('.d.ts')).map(file => {
-  return {
-    input: './src/' + file,
-    output: [
-      {
-        file: './lib/' + file.replace('.ts', '.js'),
-        format: 'es',
-      },
-    ],
-    plugins: [tsConfigForLib, ...commonPlugins]
-  }
+const walkSync = function(dir, filelist) {
+  files = fs.readdirSync(dir)
+  filelist = filelist || []
+  files.forEach(function(file) {
+    if (fs.statSync(path.join(dir, file)).isDirectory()) {
+      filelist = walkSync(path.join(dir, file), filelist)
+    } else {
+      filelist.push(path.join(dir, file))
+    }
+  })
+  return filelist
+}
+let files = walkSync('./src')
+let es = files
+  .filter(f => !f.endsWith('.d.ts') && !f.includes('react'))
+  .map(file => {
+    return {
+      input: file,
+      output: [
+        {
+          file:
+            './lib/' +
+            file
+              .replace('src/', '')
+              .replace('.ts', '.js')
+              .replace('.tsx', '.js'),
+          format: 'es',
+        },
+      ],
+      plugins: [tsConfigForLib, ...commonPlugins],
+    }
+  })
+
+let reactFiles = files.filter(f => f.includes('react/'))
+console.log('Build react related files: ', reactFiles)
+reactFiles.forEach(f => {
+  var exec = require('child_process').exec
+  var compiler = `tsc ./${f} --outDir ./lib -d` // make your cmd command here
+  console.log(compiler)
+  exec(compiler)
 })
 
 export default es

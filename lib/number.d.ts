@@ -1,12 +1,4 @@
 /**
- * To test if the input is a number
- *
- * @export
- * @param {*} testee
- * @returns {testee is number}
- */
-export declare function isNumber(testee: any): testee is number;
-/**
  * Convert a number to percentage
  * e.g.: 0.98 => 98%
  *

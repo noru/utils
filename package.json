@@ -24,10 +24,6 @@
     "url": "https://github.com/noru/utils/issues"
   },
   "homepage": "https://github.com/noru/utils#readme",
-  "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
-  },
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/jquery": "^3.3.29",
