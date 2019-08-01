@@ -22,10 +22,14 @@ export function overrideProps<T extends ReactAttributes>(
   return React.cloneElement<T>(child, propsMapper(child.props))
 }
 
+type ProxyHandler = <CustomParams extends any[]>(
+  origin: React.EventHandler<React.SyntheticEvent>,
+) => (...args: CustomParams) => void
+
 export function overrideEventhandler<T extends keyof GlobalEventHandlersEventMap>(
   child: React.ReactChild,
   eventName: T,
-  deligator: (origin: React.EventHandler<React.SyntheticEvent>) => void,
+  deligator: ProxyHandler,
 ) {
   let handlerName = 'on' + capitalizeFirst(eventName)
   return overrideProps(child, props => ({ [handlerName]: deligator(props[handlerName]) }))
