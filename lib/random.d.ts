@@ -7,18 +7,18 @@
  *   random(1, 9) // a random number from 1 to 9
  *
  * @export
- * @param {any} args
+ * @param {(...[] | [number] | [number, number])} args
  * @returns {number}
  */
-export declare function random(...args: any[]): number;
+export declare function random(...args: [] | [number] | [number, number]): number;
 /**
  * Like random, but return integer only
  *
  * @export
- * @param {any} args
+ * @param {(...[] | [number] | [number, number])} args
  * @returns {number}
  */
-export declare function randomInt(...args: any[]): number;
+export declare function randomInt(...args: [] | [number] | [number, number]): number;
 /**
  * Random boolean value
  *
