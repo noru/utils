@@ -1,4 +1,3 @@
-
 /**
  * random with range
  *
@@ -8,29 +7,28 @@
  *   random(1, 9) // a random number from 1 to 9
  *
  * @export
- * @param {any} args
+ * @param {(...[] | [number] | [number, number])} args
  * @returns {number}
  */
-export function random(...args): number {
-
-    if (args[0] === undefined) {
-      return Math.random()
-    }
-    if (args.length === 1) {
-      return Math.random() * args[0]
-    }
-
-    return Math.random() * (args[1] - args[0]) + args[0]
+export function random(...args: [] | [number] | [number, number]): number {
+  if (args[0] === undefined) {
+    return Math.random()
   }
+  if (args.length === 1) {
+    return Math.random() * args[0]
+  }
+  let [low, high] = args as [number, number]
+  return Math.random() * (high - low) + low
+}
 
 /**
  * Like random, but return integer only
  *
  * @export
- * @param {any} args
+ * @param {(...[] | [number] | [number, number])} args
  * @returns {number}
  */
-export function randomInt(...args): number {
+export function randomInt(...args: [] | [number] | [number, number]): number {
   return Math.round(random(...args))
 }
 
@@ -42,5 +40,5 @@ export function randomInt(...args): number {
  * @returns {boolean}
  */
 export function randomBool(): boolean {
-  return Math.random() > .5
+  return Math.random() > 0.5
 }

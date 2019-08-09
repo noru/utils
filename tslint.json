@@ -22,7 +22,7 @@
     "forin": false,
     "object-literal-sort-keys": false,
     "no-string-literal": false,
-    "no-console": ["log"],
+    "no-console": [true, "log"],
     "no-bitwise": false,
     "one-variable-per-declaration": false
   },
@@ -48,7 +48,7 @@
     "object-literal-sort-keys": false,
     "no-string-literal": false,
     "no-var-requires": false,
-    "no-console": ["log"],
+    "no-console": [true, "log"],
     "no-bitwise": false,
     "one-variable-per-declaration": false,
     "trailing-comma": [true, { "multiline": "always", "singleline": "ignore", "esSpecCompliant": true }],
