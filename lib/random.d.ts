@@ -27,3 +27,12 @@ export declare function randomInt(...args: [] | [number] | [number, number]): nu
  * @returns {boolean}
  */
 export declare function randomBool(): boolean;
+/**
+ * Pick a random sample out of an array
+ *
+ * @export
+ * @template T
+ * @param {T[]} array
+ * @returns {T}
+ */
+export declare function sample<T>(array: T[]): T;
