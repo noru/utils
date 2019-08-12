@@ -42,3 +42,15 @@ export function randomInt(...args: [] | [number] | [number, number]): number {
 export function randomBool(): boolean {
   return Math.random() > 0.5
 }
+
+/**
+ * Pick a random sample out of an array
+ *
+ * @export
+ * @template T
+ * @param {T[]} array
+ * @returns {T}
+ */
+export function sample<T>(array: T[]): T {
+  return array[(Math.random() * array.length) | 0]
+}
