@@ -1,7 +1,7 @@
 {
-  "name": "noru-utils",
-  "version": "0.2.16",
-  "description": "",
+  "name": "@drewxiu/utils",
+  "version": "1.0.0",
+  "description": "utils collection for myself",
   "main": "src/index.ts",
   "types": "src/index.ts",
   "module": "src/index.ts",
