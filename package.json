@@ -2,6 +2,7 @@
   "name": "@drewxiu/utils",
   "version": "1.0.0",
   "description": "utils collection for myself",
+  "private": false,
   "main": "src/index.ts",
   "types": "src/index.ts",
   "module": "src/index.ts",
