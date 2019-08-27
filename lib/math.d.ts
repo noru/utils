@@ -1,3 +1,17 @@
+/**
+ * Math.PI * 2, a whole radiant circle
+ *
+ * @export
+ * @constant
+ */
+export declare const TAU: number;
+/**
+ * Golden ratio
+ *
+ * @export
+ * @constant
+ */
+export declare const PHI = 1.618033988749895;
 export interface Vector2D {
     x: number;
     y: number;
