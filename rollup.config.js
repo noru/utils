@@ -2,6 +2,7 @@ import typescript from 'rollup-plugin-typescript2'
 import resolve from 'rollup-plugin-node-resolve'
 import replace from 'rollup-plugin-replace'
 import cleanup from 'rollup-plugin-cleanup'
+import { uglify } from 'rollup-plugin-uglify'
 
 const fs = require('fs')
 const path = require('path')
@@ -32,7 +33,7 @@ const commonPlugins = [
 ]
 
 const walkSync = function(dir, filelist) {
-  files = fs.readdirSync(dir)
+  let files = fs.readdirSync(dir)
   filelist = filelist || []
   files.forEach(function(file) {
     if (fs.statSync(path.join(dir, file)).isDirectory()) {
@@ -45,7 +46,7 @@ const walkSync = function(dir, filelist) {
 }
 let files = walkSync('./src')
 let es = files
-  .filter(f => !f.endsWith('.d.ts') && !f.includes('react'))
+  .filter(f => !f.endsWith('.d.ts'))
   .map(file => {
     return {
       input: file,
@@ -64,13 +65,26 @@ let es = files
     }
   })
 
-let reactFiles = files.filter(f => f.includes('react/'))
-console.log('Build react related files: ', reactFiles)
-reactFiles.forEach(f => {
-  var exec = require('child_process').exec
-  var compiler = `tsc ./${f} --outDir ./lib -d` // make your cmd command here
-  console.log(compiler)
-  exec(compiler)
-})
-
-export default es
+export default [
+  {
+    input: './src/index.ts',
+    output: [
+      {
+        file: './cjs/index.js',
+        format: 'cjs',
+      },
+    ],
+    plugins: [
+      typescript({
+        tsconfigOverride: {
+          compilerOptions: {
+            declaration: true,
+            target: 'es5',
+          },
+        },
+      }),
+      ...commonPlugins,
+      uglify(),
+    ],
+  },
+].concat(es)
