@@ -1,12 +1,12 @@
 import { Func } from './types';
 /**
- * Check argument is premitive or not
+ * Check argument is primitive or not
  *
  * @export
  * @param {*} obj
  * @returns {boolean}
  */
-export declare function isPremitive(obj: any): boolean;
+export declare function isPrimitive(obj: any): boolean;
 /**
  * To test if the input is a number
  *

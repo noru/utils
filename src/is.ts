@@ -1,13 +1,13 @@
 import { Func } from './types'
 
 /**
- * Check argument is premitive or not
+ * Check argument is primitive or not
  *
  * @export
  * @param {*} obj
  * @returns {boolean}
  */
-export function isPremitive(obj: any): boolean {
+export function isPrimitive(obj: any): boolean {
   return null == obj || 'object' !== typeof obj
 }
 

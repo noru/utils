@@ -1,13 +1,13 @@
 import * as is from '../src/is'
 
 describe('is', () => {
-  it('isPremitive', () => {
-    expect(is.isPremitive('hi')).to.be.true
-    expect(is.isPremitive(1)).to.be.true
-    expect(is.isPremitive(null)).to.be.true
-    expect(is.isPremitive(undefined)).to.be.true
-    expect(is.isPremitive(new Date())).to.be.false
-    expect(is.isPremitive({})).to.be.false
+  it('isPrimitive', () => {
+    expect(is.isPrimitive('hi')).to.be.true
+    expect(is.isPrimitive(1)).to.be.true
+    expect(is.isPrimitive(null)).to.be.true
+    expect(is.isPrimitive(undefined)).to.be.true
+    expect(is.isPrimitive(new Date())).to.be.false
+    expect(is.isPrimitive({})).to.be.false
   })
 
   it('isArray', () => {
