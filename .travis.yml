@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- '8'
+  - '8'
 env:
   global:
     secure: JXrw1lwn6g6AQ50l5UOhKOZR4KSWu0iKPmgFsq4Hx+QPEc+wyNVrH4l7MMBA1JldC3emJYNcsrd/Tjsxpm4dJM/XUY/lLFy8bSMPE9BJIUMm8//zMs20k30Bwd/30K5LVwiUIVc+PimsWpKDPsBYH5fNeHBOKPyzifvxlQBXxverMpxSKN7qX/ZpCa/eU6uJ8xCYTOmIyUBuoG1Fl30nXOxMvdA9RViHDTs7MbpP6v4R6UwXMd0rqC8auck7P4kFTsn/prZ//BlLpR7ODj2qKSClNPiXzROv8HzlvepMvedlXDoL7HGCzVCm2wbfMorzD9A4jEeOKB7CXy61RypJ9zVD7WzHsGW4TK18/NfLUf9AjvzViomqPXKZdbJO05OP8yPLt5OuRcObiQaMJM1r0Gr5lOerpNzD6/z1gR41fEyj+KeJb8DA/M85E3UrjixbZXqwfMfznBNziBN3UQrZmZMPyGUzF9AIFPCe9TmEBhPm5NnA6nLeccSwOHjQLAk3dz+Ipre0/vPU/P3LAeFUqehmeSQP08BOX5C/d14jzkHB5MEuavrHBaD930VtDFeqyPJDgLFOW4c60XH3bQ928DSwExULdJpZpiyTRIKVqUKfyGm4bdz0YYW++rdBs31WyYcO0u925V2xn5bOeXAtT+gn+l3cpF7wJInRV4mpTFk=
@@ -9,14 +9,14 @@ sudo: false
 addons:
   chrome: stable
 before_install:
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
 after_success:
-- bash travis/commit.sh
+  - bash travis/commit.sh
 deploy:
   provider: npm
   email: nooooru@gmail.com
   api_key:
     secure: i5/niXMfwnO6dLyspq9x2YqUFW89hD2jdZumPD7W1ilt/dEGxuSzsZnEjsX61YJKl8kbnInuQ5OxB9qdpJjkYCTCq69Ils+gwwBL+XR0ufp1g6kQv1rQpESxt7ySnX7YxjZStBA9c1JFKXsmPmEw3vMPS2iMM7hmstwsoLCsoyT3ml/Nwhyb1ZyGvaly9uE6MilgexB211KH4cX7kn3Oeeri7ccNEVhIZMv4DYOtpSzE/2Wna1UJB37xjBgmK39L6hSfZ7+xuhES/O4DvreUDvlxGp0Xbh2V8EzykqH3JrXpBflWvfxZPk1ZXR+fa279kB8JConxpkx8rvZg2DOeih5nsF6eWpsq2fMnwvxkvS4d8uyPHKwWsVXYH7UscayTnv8ndBkzprkXT8hMXohcMCnE2DsRAoXcNnf11Xb9CgKXkH6t4mykqo733NVA2/lvqnUqbGZJbR+RPbMZhiDtL28h9HL7NQQLV/R63a0tdiW7WiNC8yC0NAsXmY1v4r0WAjaSOaTWKf/k9wo44cveRgGt9IDdB7vxTs9R16AWvSzuFeeh3oPOqpdjq8utA4A/ceWtoYpYQ8nm3MHDHWQzbXyxQp7+TBqOjmUik3xEHustsdyiiIybZR6Vlm4u1PPKo0/TX0UFt2SItz3ojlqlorN31chVuf/3T8JvZuEZHd8=
   on:
-    repo: noru/utils
+    repo: @drewxiu/utils
