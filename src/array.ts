@@ -14,8 +14,8 @@ export function isNullOrEmpty(arr: any[] | undefined | null) {
 }
 
 /**
- * Like flatMap, this function walks through the nested(multi-demension) array.
- * This function keep the original demesions.
+ * Like flatMap, this function walks through the nested(multi-dimension) array.
+ * This function keep the original dimension.
  * e.g.: deepMap([1, [2, 3]], x => x + 1) => [2, [3, 4]]
  *
  * @export
@@ -43,25 +43,7 @@ export function deepMap(
 }
 
 /**
- * Shallow compare two arrays/objects
- *
- * @export
- * @param {(object | any[])} a
- * @param {(object | any[])} b
- * @returns {boolean}
- */
-export function shallowEqual(a: object | any[], b: object | any[]): boolean {
-  if (a === b) return true
-  if (a == null || b == null) return false
-  if ((a as any[]).length !== (b as any[]).length) return false
-
-  for (let i in a) {
-    if (a[i] !== b[i]) return false
-  }
-  return true
-}
-/**
- * Swap value of array's two postions
+ * Swap value of array's two positions
  *
  * @export
  * @param {any[]} arr
@@ -181,7 +163,7 @@ export function unflatten<T>(
 
   let result = new Array()
   let allMap = new Map<any, any>()
-  let defered = new Map<any, T[]>()
+  let deferred = new Map<any, T[]>()
 
   arr.forEach(element => {
     let link = element[linkProperty]
@@ -189,8 +171,8 @@ export function unflatten<T>(
     allMap.set(key, element)
     if (!link) {
       result.push(element)
-      let deferedChildren = defered.get(key)
-      if (deferedChildren) {
+      let deferredChildren = deferred.get(key)
+      if (deferredChildren) {
         defaults(element as any, childrenProp, [])[childrenProp].push(element)
       }
     } else {
@@ -198,13 +180,13 @@ export function unflatten<T>(
       if (parent) {
         defaults(parent as any, childrenProp, [])[childrenProp].push(element)
       } else {
-        let deferedList = defered.get(link) || new Array()
-        deferedList.push(element)
-        defered.set(link, deferedList)
+        let deferredList = deferred.get(link) || new Array()
+        deferredList.push(element)
+        deferred.set(link, deferredList)
       }
     }
   }) // cleanup
   // tslint:disable-next-line:align
-  ; [defered, allMap].forEach(m => m.clear())
+  ; [deferred, allMap].forEach(m => m.clear())
   return result
 }

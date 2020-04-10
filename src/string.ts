@@ -1,4 +1,4 @@
-import { isArray } from './is';
+import { isArray } from './is'
 
 /**
  * Make a long string shorter and end with "…"
@@ -12,10 +12,10 @@ import { isArray } from './is';
  */
 export function ellipsis(str: string, limit: number): string {
   if (typeof str !== 'string') {
-    throw new Error(`${JSON.stringify(str)} is not a string`);
+    throw new Error(`${JSON.stringify(str)} is not a string`)
   }
 
-  return str.length > limit ? str.substring(0, limit) + '…' : str;
+  return str.length > limit ? str.substring(0, limit) + '…' : str
 }
 
 /**
@@ -26,26 +26,26 @@ export function ellipsis(str: string, limit: number): string {
  * @returns {any}
  */
 export function parseQuery(queryString): any {
-  let query = {};
-  let pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');
+  let query = {}
+  let pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&')
   // tslint:disable-next-line:prefer-for-of
   for (let pair of pairs) {
-    let [key, value] = pair.split('=');
-    if (!key) continue;
-    let prop = decodeURIComponent(key);
-    let propVal = value === '' ? undefined : decodeURIComponent(value);
+    let [key, value] = pair.split('=')
+    if (!key) continue
+    let prop = decodeURIComponent(key)
+    let propVal = value === '' ? undefined : decodeURIComponent(value)
     if (query[prop]) {
-      let val = query[prop];
+      let val = query[prop]
       if (isArray(val)) {
-        val.push(propVal);
+        val.push(propVal)
       } else {
-        query[prop] = [val, propVal];
+        query[prop] = [val, propVal]
       }
     } else {
-      query[decodeURIComponent(key)] = propVal;
+      query[decodeURIComponent(key)] = propVal
     }
   }
-  return query;
+  return query
 }
 
 /**
@@ -58,7 +58,7 @@ export function parseQuery(queryString): any {
  * @returns {string}
  */
 export function replaceAll(target: string, search: string, replacement: string): string {
-  return target.replace(new RegExp(search, 'g'), replacement);
+  return target.replace(new RegExp(search, 'g'), replacement)
 }
 
 /**
@@ -68,17 +68,17 @@ export function replaceAll(target: string, search: string, replacement: string):
 export function hashOf(str: string | null = ''): number {
   let hash = 0,
     i,
-    chr;
+    chr
   if (str === null) {
-    return hash;
+    return hash
   }
-  if (str.length === 0) return hash;
+  if (str.length === 0) return hash
   for (i = 0; i < str.length; i++) {
-    chr = str.charCodeAt(i);
-    hash = (hash << 5) - hash + chr;
-    hash |= 0; // Convert to 32bit integer
+    chr = str.charCodeAt(i)
+    hash = (hash << 5) - hash + chr
+    hash |= 0 // Convert to 32bit integer
   }
-  return hash;
+  return hash
 }
 
 /**
@@ -92,15 +92,15 @@ export function hashOf(str: string | null = ''): number {
  * @returns {string}
  */
 export function padding(origin: string | number, paddingContent: string, threshold: number, left = true): string {
-  origin = String(origin);
+  origin = String(origin)
   if (origin.length >= threshold) {
-    return origin;
+    return origin
   }
 
   let paddingStr = Array(threshold - origin.length)
     .fill(paddingContent)
-    .join('');
-  return left ? paddingStr + origin : origin + paddingStr;
+    .join('')
+  return left ? paddingStr + origin : origin + paddingStr
 }
 
 /**
@@ -111,7 +111,7 @@ export function padding(origin: string | number, paddingContent: string, thresho
  * @returns {string} firstLetterCapitalized
  */
 export function capitalizeFirst(origin: string): string {
-  return origin.charAt(0).toUpperCase() + origin.slice(1);
+  return origin.charAt(0).toUpperCase() + origin.slice(1)
 }
 
 /**
@@ -122,5 +122,5 @@ export function capitalizeFirst(origin: string): string {
  * @returns {string} strippedString
  */
 export function stripHtmlTags(origin: string): string {
-  return origin.replace(/(<([^>]+)>)/gi, '');
+  return origin.replace(/(<([^>]+)>)/gi, '')
 }

@@ -1,5 +1,13 @@
 import { Func } from './types';
-export { shallowEqual } from './array';
+/**
+ * Shallow compare two arrays/objects
+ *
+ * @export
+ * @param {(object | any[])} a
+ * @param {(object | any[])} b
+ * @returns {boolean}
+ */
+export declare function shallowEqual(a: object | any[], b: object | any[]): boolean;
 /**
  * Deep clone one object
  * @export

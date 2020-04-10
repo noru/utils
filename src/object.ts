@@ -1,6 +1,24 @@
 import { isArray, isPremitive, isUndefinedOrNull, isEmpty } from './is'
 import { Func } from './types'
-export { shallowEqual } from './array'
+
+/**
+ * Shallow compare two arrays/objects
+ *
+ * @export
+ * @param {(object | any[])} a
+ * @param {(object | any[])} b
+ * @returns {boolean}
+ */
+export function shallowEqual(a: object | any[], b: object | any[]): boolean {
+  if (a === b) return true
+  if (a == null || b == null) return false
+  if ((a as any[]).length !== (b as any[]).length) return false
+
+  for (let i in a) {
+    if (a[i] !== b[i]) return false
+  }
+  return true
+}
 
 /**
  * Deep clone one object

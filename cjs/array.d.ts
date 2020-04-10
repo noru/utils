@@ -8,8 +8,8 @@
  */
 export declare function isNullOrEmpty(arr: any[] | undefined | null): boolean;
 /**
- * Like flatMap, this function walks through the nested(multi-demension) array.
- * This function keep the original demesions.
+ * Like flatMap, this function walks through the nested(multi-dimension) array.
+ * This function keep the original dimension.
  * e.g.: deepMap([1, [2, 3]], x => x + 1) => [2, [3, 4]]
  *
  * @export
@@ -19,16 +19,7 @@ export declare function isNullOrEmpty(arr: any[] | undefined | null): boolean;
  */
 export declare function deepMap(deepArray: any[], iteratee: (item: any, cord: number[], index: number) => any, pos?: number[], index?: any): any;
 /**
- * Shallow compare two arrays/objects
- *
- * @export
- * @param {(object | any[])} a
- * @param {(object | any[])} b
- * @returns {boolean}
- */
-export declare function shallowEqual(a: object | any[], b: object | any[]): boolean;
-/**
- * Swap value of array's two postions
+ * Swap value of array's two positions
  *
  * @export
  * @param {any[]} arr
