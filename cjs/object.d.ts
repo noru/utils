@@ -7,7 +7,7 @@ import { Func } from './types';
  * @param {(object | any[])} b
  * @returns {boolean}
  */
-export declare function shallowEqual(a: object | any[], b: object | any[]): boolean;
+export declare function shallowEquals(a: object | any[], b: object | any[]): boolean;
 /**
  * Deep clone one object
  * @export

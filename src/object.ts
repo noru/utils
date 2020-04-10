@@ -1,5 +1,5 @@
-import { isArray, isPrimitive, isUndefinedOrNull, isEmpty } from './is'
-import { Func } from './types'
+import { isArray, isPrimitive, isUndefinedOrNull, isEmpty } from './is';
+import { Func } from './types';
 
 /**
  * Shallow compare two arrays/objects
@@ -9,15 +9,15 @@ import { Func } from './types'
  * @param {(object | any[])} b
  * @returns {boolean}
  */
-export function shallowEqual(a: object | any[], b: object | any[]): boolean {
-  if (a === b) return true
-  if (a == null || b == null) return false
-  if ((a as any[]).length !== (b as any[]).length) return false
+export function shallowEquals(a: object | any[], b: object | any[]): boolean {
+  if (a === b) return true;
+  if (a == null || b == null) return false;
+  if ((a as any[]).length !== (b as any[]).length) return false;
 
   for (let i in a) {
-    if (a[i] !== b[i]) return false
+    if (a[i] !== b[i]) return false;
   }
-  return true
+  return true;
 }
 
 /**
@@ -27,31 +27,31 @@ export function shallowEqual(a: object | any[], b: object | any[]): boolean {
  * @returns any
  */
 export function recursiveCopy(source: any) {
-  let target
-  if (isPrimitive(source)) return source
+  let target;
+  if (isPrimitive(source)) return source;
 
   if (source instanceof Date) {
-    target = new Date()
-    target.setTime(source.getTime())
-    return target
+    target = new Date();
+    target.setTime(source.getTime());
+    return target;
   }
 
   if (source instanceof Array) {
-    target = []
+    target = [];
     for (let i = 0, len = source.length; i < len; i++) {
-      target[i] = recursiveCopy(source[i])
+      target[i] = recursiveCopy(source[i]);
     }
-    return target
+    return target;
   }
 
   if (source instanceof Object) {
-    target = {}
+    target = {};
     for (let attr in source) {
       if (source.hasOwnProperty(attr)) {
-        target[attr] = recursiveCopy(source[attr])
+        target[attr] = recursiveCopy(source[attr]);
       }
     }
-    return target
+    return target;
   }
 }
 /**
@@ -63,26 +63,26 @@ export function recursiveCopy(source: any) {
  * @returns
  */
 export function isEqual(obj1: any, obj2: any) {
-  if (obj1 === obj2) return true
+  if (obj1 === obj2) return true;
 
-  if (isPrimitive(obj1)) return obj1 === obj2
+  if (isPrimitive(obj1)) return obj1 === obj2;
 
-  if (obj1 instanceof Date) return obj1.getTime() === obj2.getTime()
+  if (obj1 instanceof Date) return obj1.getTime() === obj2.getTime();
 
   if (obj1 instanceof Array) {
-    if (obj1.length !== obj2.length) return false
+    if (obj1.length !== obj2.length) return false;
     for (let i = 0, len = obj1.length; i < len; i++) {
-      if (!isEqual(obj1[i], obj2[i])) return false
+      if (!isEqual(obj1[i], obj2[i])) return false;
     }
-    return true
+    return true;
   }
 
   if (obj1 instanceof Object) {
     for (let attr in obj1) {
-      if (!obj2.hasOwnProperty(attr)) return false
-      if (!isEqual(obj1[attr], obj2[attr])) return false
+      if (!obj2.hasOwnProperty(attr)) return false;
+      if (!isEqual(obj1[attr], obj2[attr])) return false;
     }
-    return true
+    return true;
   }
 }
 
@@ -100,17 +100,17 @@ export function merge(...argument: any[]) {
   return argument.reduce(function (obj1: any, obj2: any) {
     if (!isPrimitive(obj1) && !isPrimitive(obj2)) {
       for (let attr in obj2) {
-        obj1[attr] = merge(obj1[attr], obj2[attr])
+        obj1[attr] = merge(obj1[attr], obj2[attr]);
       }
-      return obj1
+      return obj1;
     }
 
     if (isUndefinedOrNull(obj1) || isUndefinedOrNull(obj2)) {
-      return obj1 || obj2
+      return obj1 || obj2;
     }
-    obj1 = obj2
-    return obj1
-  })
+    obj1 = obj2;
+    return obj1;
+  });
 }
 
 /**
@@ -143,26 +143,26 @@ export function merge(...argument: any[]) {
  */
 export function flattenDeepBy<T>(obj: T | T[], propNameOrGetter: string | Func): T[] {
   if (isEmpty(obj) || typeof obj === 'number' || typeof obj === 'string') {
-    return []
+    return [];
   }
 
   if (!isArray(obj)) {
-    obj = [obj]
+    obj = [obj];
   }
   if (typeof propNameOrGetter === 'string') {
-    let _propStr = propNameOrGetter
-    propNameOrGetter = (o) => o[_propStr]
+    let _propStr = propNameOrGetter;
+    propNameOrGetter = (o) => o[_propStr];
   }
-  let result = new Array()
+  let result = new Array();
   while (obj.length > 0) {
-    let head = obj.shift()
-    result.push(head)
-    let propVal = propNameOrGetter(head)
+    let head = obj.shift();
+    result.push(head);
+    let propVal = propNameOrGetter(head);
     if (isArray(propVal)) {
-      obj = propVal.concat(obj)
+      obj = propVal.concat(obj);
     }
   }
-  return result
+  return result;
 }
 
 /**
@@ -189,11 +189,11 @@ export function defaults<T1 extends object, T2>(
   defaultVal: T2
 ): T1 & { [prop: string]: T2 } {
   if (typeof original !== 'object') {
-    throw Error(`Original input must be an object, not ${typeof original}`)
+    throw Error(`Original input must be an object, not ${typeof original}`);
   }
-  let val = original[prop]
+  let val = original[prop];
   if (val === undefined) {
-    original[prop] = defaultVal
+    original[prop] = defaultVal;
   }
-  return original as any
+  return original as any;
 }
