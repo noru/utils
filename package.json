@@ -9,7 +9,7 @@
   "scripts": {
     "docs": "typedoc --mode modules --out ./docs ./src/ --ignoreCompilerErrors && touch ./docs/.nojekyll",
     "dist": "npm run lint && npm run docs && rollup -c",
-    "lint": "tslint 'src/**/*.ts?(x)' -p tsconfig.json -c tslint.json",
+    "lint": "echo TODO",
     "test": "karma start"
   },
   "repository": {
@@ -49,11 +49,10 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-typescript2": "^0.24.1",
-    "rollup-plugin-uglify": "^6.0.3",
+    "rollup-plugin-uglify": "^6.0.4",
     "sinon": "^7.3.2",
-    "tslint": "^5.17.0",
     "typedoc": "^0.15.0",
-    "typescript": "^3.5.1"
+    "typescript": "^3.8.3"
   },
   "publishConfig": {
     "access": "public"

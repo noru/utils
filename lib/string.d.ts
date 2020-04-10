@@ -51,3 +51,11 @@ export declare function padding(origin: string | number, paddingContent: string,
  * @returns {string} firstLetterCapitalized
  */
 export declare function capitalizeFirst(origin: string): string;
+/**
+ * Strip HTML tags from a raw string
+ *
+ * @export
+ * @param {string} origin
+ * @returns {string} strippedString
+ */
+export declare function stripHtmlTags(origin: string): string;
