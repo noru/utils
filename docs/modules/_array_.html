@@ -91,32 +91,15 @@
 					<a name="binarysearch" class="tsd-anchor"></a>
 					<h3>binary<wbr>Search</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">binary<wbr>Search&lt;T&gt;<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, predict<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, onward<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, end<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+						<li class="tsd-signature tsd-kind-icon">binary<wbr>Search&lt;T&gt;<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, predict<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, onward<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a499ace/src/array.ts#L136">array.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/ed402fb/src/array.ts#L136">array.ts:136</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Perform binary search on a sorted array. Element will be fed to predict function, if true, the target is
-										found and returned, otherwise onward function is called and the returned value determins the next
-										move:
-										true  - left-ward continuance
-									false - right-ward continuance</p>
-								</div>
-								<p>null is returned if none is suitable</p>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-									<dt>template</dt>
-									<dd><p>T</p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -195,20 +178,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a499ace/src/array.ts#L26">array.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/ed402fb/src/array.ts#L26">array.ts:26</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Like flatMap, this function walks through the nested(multi-demension) array.
-										This function keep the original demesions.
-									e.g.: deepMap([1, [2, 3]], x =&gt; x + 1) =&gt; [2, [3, 4]]</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -262,19 +234,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a499ace/src/array.ts#L12">array.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/ed402fb/src/array.ts#L12">array.ts:12</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Check if an array contains any elements.
-									null/undefined are considered empty.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -289,38 +251,22 @@
 					<a name="pick" class="tsd-anchor"></a>
 					<h3>pick</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">pick<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, <span class="tsd-signature-symbol">...</span>indices<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">pick<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, indices<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a499ace/src/array.ts#L96">array.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/ed402fb/src/array.ts#L96">array.ts:96</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Pick a value from a deep array by its indices.
-										e.g.: pick(arr, 1, 2, 3) = arr[1][2][3]
-										if an array is supplied as the last parameter, it will be filled with arrays in each level
-									e.g.: [rootArray, subArray, ..., parentArray]</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>array: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>indices: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>target value indices in a deep array. e.g. the indice of value <code>arr[i1][i2][i3]</code> is [i1, i2, i3]
-										the last one can be an empty array to hold parents in each level</p>
-									</div>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> indices: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -337,18 +283,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a499ace/src/array.ts#L53">array.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/ed402fb/src/array.ts#L53">array.ts:53</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Shallow compare two arrays/objects</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -372,18 +309,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a499ace/src/array.ts#L72">array.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/ed402fb/src/array.ts#L72">array.ts:72</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Swap value of array&#39;s two postions</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -411,21 +339,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a499ace/src/array.ts#L172">array.ts:172</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/ed402fb/src/array.ts#L172">array.ts:172</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Experiment feature...</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-									<dt>template</dt>
-									<dd><p>T</p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>

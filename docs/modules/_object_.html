@@ -95,29 +95,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a499ace/src/object.ts#L172">object.ts:172</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/ed402fb/src/object.ts#L172">object.ts:172</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>A simple version of lodash.defaults.
-										e.g.:
-										defaults({}, &#39;couldBeUndefined&#39;, { a: 1 }).countBeUndefined
-										// { a: 1 }
-										To avoid writing code like:
-										let val = obj.someProp
-										if (val === undefined) {
-										val = obj.someProp = defaultValue
-									}</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-									<dt>template</dt>
-									<dd><p>T</p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -157,40 +137,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a499ace/src/object.ts#L129">object.ts:129</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/ed402fb/src/object.ts#L129">object.ts:129</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Like lodash.flattenDeep, except it flattens an array property of an object. e.g.:
-										{
-										id: 1,
-										children: [
-										{
-										id: 2,
-										children: [
-										{
-										id: 3
-										}
-										]
-										}
-										]
-										}
-										become:
-										[
-										{ id: 1, children: [...] },
-										{ id: 2, children: [...] },
-										{ id: 3 },
-									]</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-									<dt>template</dt>
-									<dd><p>T</p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -201,15 +150,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>target to be flattened</p>
-									</div>
 								</li>
 								<li>
 									<h5>propNameOrGetter: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_types_.html#func" class="tsd-signature-type">Func</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>name or getter of the target array</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -226,18 +169,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a499ace/src/object.ts#L48">object.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/ed402fb/src/object.ts#L48">object.ts:48</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Check whether A equals B</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -260,31 +194,19 @@
 					<a name="merge" class="tsd-anchor"></a>
 					<h3>merge</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">merge<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>argument<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">merge<span class="tsd-signature-symbol">(</span>argument<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a499ace/src/object.ts#L84">object.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/ed402fb/src/object.ts#L84">object.ts:84</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Merge Objects from left to right
-										Array and plain object properties are merged recursively.
-										Other objects and value types are overridden by assignment
-									Subsequent object overwrite property assignments of previous object.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>argument: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> argument: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -301,25 +223,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/noru/utils/blob/a499ace/src/object.ts#L11">object.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/noru/utils/blob/ed402fb/src/object.ts#L11">object.ts:11</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Deep clone one object</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>export</dt>
-									<dd></dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>source: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>any</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
