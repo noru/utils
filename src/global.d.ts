@@ -1,7 +1,7 @@
 interface Document {
-  mozCancelFullScreen: () => void
-  webkitExitFullscreen: () => void
-  fullscreenElement: () => void
-  mozFullScreenElement: () => void
-  webkitFullscreenElement: () => void
+  mozCancelFullScreen: Element
+  webkitExitFullscreen: Element
+  fullscreenElement: Element
+  mozFullScreenElement: Element
+  webkitFullscreenElement: Element
 }

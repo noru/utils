@@ -7,7 +7,7 @@
   "types": "src/index.ts",
   "module": "src/index.ts",
   "scripts": {
-    "docs": "typedoc --mode modules --out ./docs ./src/ --ignoreCompilerErrors && touch ./docs/.nojekyll",
+    "docs": "typedoc --out ./docs ./src/ && touch ./docs/.nojekyll",
     "dist": "npm run lint && npm run docs && rollup -c",
     "lint": "echo TODO",
     "test": "karma start"
