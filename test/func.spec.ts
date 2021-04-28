@@ -70,8 +70,8 @@ describe('String Utils', () => {
     let result2: number | undefined = FuncUtils.attempt(() => iThrowError(1))
     let result3: string = FuncUtils.attempt(() => iThrowError('123'), '123')
 
-    // @ts-expect-error
-    let error: number = FuncUtils.attempt(() => iThrowError(1))
+    // // @ts-expect-error
+    // let error: number = FuncUtils.attempt(() => iThrowError(1))
     // @ts-expect-error
     let error2: number = FuncUtils.attempt(() => iThrowError('123'))
     // @ts-expect-error
