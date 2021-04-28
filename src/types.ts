@@ -10,3 +10,5 @@ export type Diff<T extends string, U extends string> = ({ [P in T]: P } &
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 export type View<K extends string, V = unknown> = { [_ in K]: V }
 export type Overwrite<T1, T2> = { [P in Exclude<keyof T1, keyof T2>]: T1[P] } & T2
+export type ParamType<T> = T extends (...args: infer P) => any ? P : T;
+export type ReturnType<T> = T extends (...args: any[]) => infer P ? P : any;
