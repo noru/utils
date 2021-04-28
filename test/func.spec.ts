@@ -46,18 +46,36 @@ describe('String Utils', () => {
 
   it('attempt', () => {
 
+    function iThrowError<T>(arg: T): T {
+      if ('true') {
+        throw new Error()
+      }
+      return arg;
+    }
+
     expect(FuncUtils.attempt(() => undefined)).to.not.throws
-    expect(FuncUtils.attempt(() => { throw new Error() })).to.not.throws
-    expect(FuncUtils.attempt(() => { throw new Error() })).to.be.undefined
-    expect(FuncUtils.attempt(() => { throw new Error() }, 1)).to.be.eq(1)
+    expect(FuncUtils.attempt(iThrowError)).to.not.throws
+    expect(FuncUtils.attempt(iThrowError)).to.be.undefined
+    expect(FuncUtils.attempt(iThrowError, 1)).to.be.eq(1)
     expect(FuncUtils.attempt(() => 2, 1)).to.be.eq(2)
 
     let _spy = spy(console, 'error')
     FuncUtils.attempt(() => { throw new Error() })
     expect(_spy.called).to.be.false
-    FuncUtils.attempt(() => { throw new Error() }, undefined, false)
+    FuncUtils.attempt(iThrowError, undefined, false)
     expect(_spy.called).to.be.true
 
+    // type check
+    let result1: number = FuncUtils.attempt(() => iThrowError(1), 1)
+    let result2: number | undefined = FuncUtils.attempt(() => iThrowError(1))
+    let result3: string = FuncUtils.attempt(() => iThrowError('123'), '123')
+
+    // @ts-expect-error
+    let error: number = FuncUtils.attempt(() => iThrowError(1))
+    // @ts-expect-error
+    let error2: number = FuncUtils.attempt(() => iThrowError('123'))
+    // @ts-expect-error
+    let error3: number = FuncUtils.attempt(() => iThrowError('123'), 123)
   })
 
 })

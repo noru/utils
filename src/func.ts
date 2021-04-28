@@ -68,11 +68,30 @@ export function compose<T = any>(...funcs: Func[]): (...args: any[]) => T {
  * @param {boolean} [silent=true]
  * @returns {*}
  */
-export function attempt<T>(func: Func<T>, defaultValue?: T, silent: boolean = true): T | undefined {
+export function attempt<T, P extends T = any>(func: Func<T>, defaultValue?: P, silent: boolean = true): P extends T ? T : (T | undefined) {
   try {
-    return func()
+    return func() as any
   } catch (e) {
     !silent && console.error(e)
-    return defaultValue
+    return defaultValue as any
   }
 }
+
+// function iThrowError<T>(arg: T): T {
+//   if ('true') {
+//     throw new Error()
+//   }
+//   return arg;
+// }
+
+// // type check
+// let result1: number = attempt(() => iThrowError(1), 1)
+// let result2: number | undefined = attempt(() => iThrowError(1))
+// let result3: string = attempt(() => iThrowError('123'), '123')
+
+// // @ts-expect-error
+// let error: number = attempt(() => iThrowError(1))
+// // @ts-expect-error
+// let error2: number = attempt(() => iThrowError('123'))
+// // @ts-expect-error
+// let error3: number = attempt(() => iThrowError('123'), 123)
