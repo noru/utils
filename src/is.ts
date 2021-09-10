@@ -73,11 +73,11 @@ export function isArray<T = any>(testee: unknown): testee is T[] {
 /**
  * Check input param is undefined or null
  *
- * @param {*} param
+ * @param {*} testee
  * @returns {boolean}
  */
-export function isUndefinedOrNull(param: unknown): boolean {
-  return param === null || param === undefined
+export function isUndefinedOrNull(testee: unknown): testee is (null | undefined) {
+  return testee === null || testee === undefined
 }
 
 /**
