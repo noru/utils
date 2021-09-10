@@ -124,3 +124,16 @@ export function capitalizeFirst(origin: string): string {
 export function stripHtmlTags(origin: string): string {
   return origin.replace(/(<([^>]+)>)/gi, '')
 }
+
+/**
+ * Compare 2 strings witch case ignored by default
+ * @param str1 
+ * @param str2 
+ * @param ignoreCase 
+ * @returns 
+ */
+export function isStrEqual (str1, str2, ignoreCase = true): boolean {
+  str1 = str1 || ''
+  str2 = str2 || ''
+  return ignoreCase ? new RegExp(`^${str1}$`, 'i').test(str2) : str1 === str2
+}
