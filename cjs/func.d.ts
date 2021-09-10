@@ -37,4 +37,4 @@ export declare function compose<T = any>(...funcs: Func[]): (...args: any[]) => 
  * @param {boolean} [silent=true]
  * @returns {*}
  */
-export declare function attempt<T>(func: Func<T>, defaultValue?: T, silent?: boolean): T | undefined;
+export declare function attempt<T, P extends T = any>(func: Func<T>, defaultValue?: P, silent?: boolean): P extends T ? T : (T | undefined);

@@ -59,3 +59,11 @@ export declare function capitalizeFirst(origin: string): string;
  * @returns {string} strippedString
  */
 export declare function stripHtmlTags(origin: string): string;
+/**
+ * Compare 2 strings witch case ignored by default
+ * @param str1
+ * @param str2
+ * @param ignoreCase
+ * @returns
+ */
+export declare function isStrEqual(str1: any, str2: any, ignoreCase?: boolean): boolean;

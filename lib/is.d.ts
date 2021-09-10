@@ -50,10 +50,10 @@ export declare function isArray<T = any>(testee: unknown): testee is T[];
 /**
  * Check input param is undefined or null
  *
- * @param {*} param
+ * @param {*} testee
  * @returns {boolean}
  */
-export declare function isUndefinedOrNull(param: unknown): boolean;
+export declare function isUndefinedOrNull(testee: unknown): testee is (null | undefined);
 /**
  *  Check input param is "Empty": undefined or null or {}, []
  *

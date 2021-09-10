@@ -8,7 +8,8 @@
   "module": "src/index.ts",
   "scripts": {
     "docs": "typedoc --out ./docs ./src/ && touch ./docs/.nojekyll",
-    "dist": "npm run lint && npm run docs && rollup -c",
+    "dist": "npm run lint && npm run docs && npm run build",
+    "build": "rollup -c",
     "lint": "echo TODO",
     "test": "karma start"
   },

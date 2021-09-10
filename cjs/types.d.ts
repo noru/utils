@@ -18,3 +18,5 @@ export declare type View<K extends string, V = unknown> = {
 export declare type Overwrite<T1, T2> = {
     [P in Exclude<keyof T1, keyof T2>]: T1[P];
 } & T2;
+export declare type ParamType<T> = T extends (...args: infer P) => any ? P : T;
+export declare type ReturnType<T> = T extends (...args: any[]) => infer P ? P : any;
