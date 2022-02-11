@@ -1,6 +1,6 @@
 {
   "name": "@drewxiu/utils",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "description": "utils collection for myself",
   "private": false,
   "main": "src/index.ts",
